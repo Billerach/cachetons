@@ -1,7 +1,7 @@
 class CompaniesController < ApplicationController
   def index
     @companies = current_user.companies
-    @company = Company.new
+    @company = Company.newl
   end
 
   def create
