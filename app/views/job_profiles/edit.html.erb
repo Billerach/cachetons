@@ -1,0 +1,26 @@
+<%= form_with model: @job_profile do |f| %>
+  <h2>
+    <%= @job_profile.name %>
+  </h2>
+  <%= link_to "Annuler", job_profiles_url %>
+  <div>
+    <strong><%= f.label "Artiste ?" %></strong>
+    <%= f.check_box "artist" %> <br />
+    <strong><%= f.label "Cadre ?" %></strong>
+    <%= f.check_box "executive" %> <br />
+    <%= f.label :contributions %> : <br />
+    <% @contributions.each do |contribution| %>
+      <label>
+          <% if (@previous_contributions.include?(contribution.id)) %>
+            <%= check_box_tag "job_profile[contributions_list][]", contribution.id, true %>
+          <% else %>
+            <%= check_box_tag "job_profile[contributions_list][]", contribution.id %>
+          <% end %>
+        <%= contribution.name %>
+      </label>
+      <br>
+    <% end %>
+  </div>
+
+  <%= f.submit %>
+<% end %>

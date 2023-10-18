@@ -82,5 +82,5 @@ test:
 production:
   <<: *default
   database: test_cachetons_production
-  username: test_cachetons
+  username: <%= ENV["TEST_CACHETONS_DATABASE_USERNAME"] %>
   password: <%= ENV["TEST_CACHETONS_DATABASE_PASSWORD"] %>

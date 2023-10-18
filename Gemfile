@@ -72,3 +72,7 @@ group :test do
 end
 
 gem "devise"
+gem 'simple_form'
+gem 'country_select'
+gem 'sass-rails'
+gem 'dotenv-rails'

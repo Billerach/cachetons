@@ -1,0 +1,50 @@
+<h1>Index des Payslips</h1>
+<div class="payslips_board_new_payslip">
+  <%= form_with(model: @payslip, url: company_payslips_path(@company), local: false) do |form| %>
+    <%= form.label :employee_id, "Nouvelle fiche de paie pour :" %>
+    <%= form.collection_select :employee_id, @company.employees.distinct, :id, :lastname_with_firstname %>
+    <%= form.label :employee_id, ", en tant que :" %>
+    <%= form.collection_select :job_profile, current_user.job_profile, :id, :name %>
+    <%= form.label :employee_id, ", concernant le spectacle :" %>
+    <%= form.collection_select :performance_id, @company.performances, :id, :name %>
+    <%= form.label :contract_start, "embauche prévue le :" %>
+    <%= form.date_field :contract_start, value: Date.today %>
+    <%= form.submit %>
+  <% end %>
+</div>
+<div id="payslips_board_container">
+  <% if @payslips.present? %>
+    <ul class='payslips_board_title'>
+      <% month_list = ["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre"]%>
+      <% month_list.each_with_index do |month, index| %>
+        <li>
+          <h3><%= month.upcase %></h3>
+          <div class="payslips_list">
+            <% @payslips.each do |payslip| %>
+              <% if payslip.contract_start? %>
+                <% payslip_contract_start_month = Date.parse((payslip.contract_start).to_s).strftime("%m") %>
+                <% else %>
+                <% payslip_contract_start_month = "--" %>
+              <% end %>
+              <% if payslip_contract_start_month.to_i == index + 1 %>
+                <%= link_to company_payslip_path(payslip.company,payslip.id), class: "payslip_card" do %>
+                  <p>
+                    <%= payslip.employee.lastname %>
+                    <%= payslip.employee.firstname %>,
+                    <%= "#{payslip.job_profile} #{payslip.artist? ? '( Artiste' : '( Non-artiste'} #{payslip.executive? ? 'Cadre )' : 'Non-cadre )'}" %>,
+                    Du <%= payslip.contract_start %> au <%= payslip.contract_end %>
+                    pour "<%= payslip.performance.name %>".
+                  </p>
+                  </a>
+                <% end %>
+              <% end %>
+            <% end %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <div id="no_result">Pas de résultats</div>
+  <% end %>
+
+</div>

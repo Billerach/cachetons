@@ -1,0 +1,56 @@
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <div class="container-fluid">
+    <%= link_to "/", class: "navbar-brand" do %>
+      <%= image_tag "home.png" %>
+    <% end %>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+
+  <div>
+    <% if user_signed_in? %>
+      <% case params[:controller] %>
+      <% when "companies" %>
+        <%= link_to "Liste des compagnies", companies_path unless params[:action] == "index" %>
+      <% when "job_profiles" %>
+        <%= link_to "Liste des compagnies", companies_path %>
+        <%= link_to "Vos modèles", job_profiles_url unless params[:action] == "index" %>
+      <% when "employees" %>
+        <%= link_to "Liste des compagnies", companies_path %>
+        <%= link_to "Tableau de bord de la structure", company_path(@employee.company.id) %>
+      <% when "payslips" %>
+        <%= link_to "Liste des compagnies", companies_path %>
+        <% if params[:action] == "index" %>
+          <%= link_to "Tableau de bord de la structure", company_path(@company.id) %>
+        <% else %>
+          <%= link_to "Tableau de bord de la structure", company_path(@payslip.company.id) %>
+          <%= link_to "Liste des fiches de paye", company_payslips_path(@payslip.company.id) %>
+        <% end %>
+      <% end %>
+    <% end %>
+
+</div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+        <% if user_signed_in? %>
+          <li class="nav-item dropdown">
+            <%= current_user.email %>
+            <%= image_tag "logout.png", class: "dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "Vos modèles", job_profiles_url, class: "dropdown-item" %>
+              <%= link_to "Vos cotisations", contributions_url, class: "dropdown-item" %>
+              <%= link_to "Vos paramètres", "#", class: "dropdown-item" %>
+              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+            </div>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

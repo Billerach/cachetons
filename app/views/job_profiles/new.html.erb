@@ -1,0 +1,22 @@
+<%= form_with(model: @job_profile, url: job_profiles_path, local: true) do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field "job_profile[name]" %>
+    <%= f.label "Artiste ? " %>
+    <%= f.check_box "job_profile[artist]" %>
+    <%= f.label "Cadre ? " %>
+    <%= f.check_box "job_profile[executive]" %>
+  </div>
+  <div>
+    <%= f.label :contributions %>
+    <% @contributions.each do |contribution| %>
+      <label>
+        <%= check_box_tag "job_profile[contributions_list][]", contribution.id %>
+        <%= contribution.name %>
+      </label>
+      <br>
+    <% end %>
+  </div>
+
+  <%= f.submit %>
+<% end %>

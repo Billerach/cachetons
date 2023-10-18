@@ -1,0 +1,19 @@
+<div id="payslips_show_container">
+  <h1>Edition d'un salarié</h1>
+  <%= link_to "Annuler", company_employee_url %>
+   <%= simple_form_for([@company, @employee]) do |f| %>
+    <%= f.input :firstname,            input_html: {placeholder: @employee.firstname}, label: false, required: true %>
+    <%= f.input :lastname,             input_html: {placeholder: @employee.lastname}, label: false, required: true %>
+    <%= f.input :address,              input_html: {placeholder: @employee.address}, label: false, required: true %>
+    <%= f.input :phone,                input_html: {placeholder: @employee.phone}, label: false, required: true %>
+    <%= f.input :phone_2,              input_html: {placeholder: @employee.phone_2}, label: false, required: false %>
+    <%= f.input :NIR,                  input_html: {placeholder: @employee.NIR}, label: false, required: true %>
+    <%= f.input :conges_spectacles,    input_html: {placeholder: @employee.conges_spectacles}, label: false, required: false %>
+    <%= f.label :date_of_birth, "Date de naissance" %>
+    <%= f.date_field :date_of_birth,   input_html: {placeholder: @employee.date_of_birth}, label: false, required: true %>
+    <%= f.input :place_of_birth,       input_html: {placeholder: @employee.place_of_birth}, label: false, required: true %>
+    <%= f.input :departement_of_birth, input_html: {placeholder: @employee.departement_of_birth}, label: false, required: false %>
+    <%= f.input :country_of_birth,     input_html: {placeholder: @employee.country_of_birth}, label: false, required: true %>
+    <%= f.button :submit, "Sauvegarder", class: "company_create_form_button" %>
+  <% end %>
+</div>

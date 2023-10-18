@@ -1,7 +1,14 @@
-<% if user_signed_in? %>
- <div> Welcome <%= current_user.email %> </div>
-  <%= button_to "Sign out", destroy_user_session_path, method: :delete %>
-<% else %>
-  <%= button_to "Sign in", new_user_session_path %>
-<% end %>
-<h1>Hello Mon Cul !</h1>
+<div id="cachetons_banner">
+</div>
+<nav class="home_nav">
+  <%= link_to "Login", companies_path %>
+</nav>
+<!-- ul>
+  <%# @json.each do |call_for_project| %>
+    <li class="card_call_for_projects">
+      <h3><%#= link_to call_for_project["title"], call_for_project["url"] %></h3>
+      <small>Deadline : <%#= call_for_project["deadline"] %></small>
+      <p><%#= sanitize(call_for_project["summary"]) %></p>
+    </li>
+  <%# end %>
+</ul>

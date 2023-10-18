@@ -1,0 +1,15 @@
+<%= form_with model: @company do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.label :siret %>
+    <%= f.text_field :siret %>
+    <%= f.label :naf %>
+    <%= f.text_field :naf %>
+    <%= f.label :address %>
+    <%= f.text_field :address %>
+    <%= f.label :license_number %>
+    <%= f.text_field :license_number %>
+  </div>
+  <%= f.submit %>
+<% end %>

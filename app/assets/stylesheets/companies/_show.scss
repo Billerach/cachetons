@@ -1,0 +1,27 @@
+.company_show_container {
+  display: block;
+  width: 90%;
+  margin: auto;
+
+  table {
+    margin-bottom: 2em;
+  }
+}
+
+// targets simple_form_for new company_link
+#new_company_link {
+  display: flex;
+
+  input[type='email'] {
+    display: block;
+    width: 30ch;
+
+    ::placeholder {
+      font-style: italic;
+    }
+  }
+  input[type='submit'] {
+    display: block;
+    height: fit-content;
+  }
+}

@@ -1,0 +1,17 @@
+<div>
+    <% if @job_profiles.present? %>
+      <%= "Vos modèles :" %>
+        <ul>
+          <% @job_profiles.each do |job_profile| %>
+            <li>
+              <%= link_to job_profile_url(job_profile.id), class: "payslip_card" do %>
+                <%= "#{job_profile.name} ( #{job_profile.artist? ? "artiste" : "non-artiste"} #{job_profile.executive? ? "cadre" : "non-cadre"} )"%>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+    <% else %>
+      <%= "pas de modèle enregistré" %>
+    <% end %>
+    <%= link_to "Nouveau modèle de fiche de paie", new_job_profile_url %>
+</div>

@@ -1,0 +1,94 @@
+<div class="company_show_container">
+<h1>Tableau de bord</h1>
+
+<h2><%= @company.name %></h2>
+<p>
+  <strong>Siret : </strong>         <%= @company.siret %><br />
+  <strong>NAF : </strong>           <%= @company.naf %><br />
+  <strong>Adresse : </strong>       <%= @company.address %><br />
+  <strong>N° de License : </strong> <%= @company.license_number %><br />
+</p>
+<%= link_to "Modifier les données de la structure", edit_company_url %>
+
+  <h3 class="payslips_index_link">
+    <%= link_to "Voir toutes les fiches de paie", company_payslips_path(@company) %>
+  </h3>
+
+  <hr>
+
+  <h3>Spectacles de la companie :</h3>
+
+  <ul>
+    <% @company.performances.each do |performance| %>
+      <li>
+        <%= link_to "#{performance.name} : #{performance.num_objet} (#{performance.payslips.count})", company_payslips_path(@company, performance:) %>
+        <%= link_to "Modifier", edit_company_performance_path(@company, performance) %>
+        <%= link_to "Supprimer", company_performance_url(@company, performance), data: {turbo_method: :delete, turbo_confirm: "Êtes-vous sûr de vouloir supprimer #{performance.name} ?"
+    } %>
+      </li>
+    <% end %>
+  </ul>
+
+  <%= simple_form_for([@company, @performance]) do |f| %>
+    <%= f.input :name,      input_html: {placeholder: "Titre"}, label: false, required: true %>
+    <%= f.input :num_objet, input_html: {placeholder: "Numéro d'objet"}, label: false, required: true %>
+    <%= f.button :submit, "Nouveau spectacle", class: "company_create_form_button" %>
+  <% end %>
+
+  <hr>
+
+  <h3>Employés de la companie :</h3>
+
+  <ul>
+    <% @company.employees.each do |employee| %>
+      <li><%= link_to employee.lastname_with_firstname, company_employee_path(@company, employee) %></li>
+    <% end %>
+  </ul>
+
+  <%= simple_form_for([@company, @employee]) do |f| %>
+    <%= f.input :firstname,            input_html: {placeholder: 'Prénom'}, label: false, required: true %>
+    <%= f.input :lastname,             input_html: {placeholder: 'Nom'}, label: false, required: true %>
+    <%= f.input :address,              input_html: {placeholder: 'Adresse'}, label: false, required: true %>
+    <%= f.input :phone,                input_html: {placeholder: 'N° de téléphone'}, label: false, required: true %>
+    <%= f.input :phone_2,              input_html: {placeholder: 'Autre N° de téléphone'}, label: false, required: false %>
+    <%= f.input :NIR,                  input_html: {placeholder: 'N° de sécurité sociale'}, label: false, required: true %>
+    <%= f.input :conges_spectacles,    input_html: {placeholder: 'N° de congés spectacles'}, label: false, required: false %>
+    <%= f.label :date_of_birth, "Date de naissance" %>
+    <%= f.date_field :date_of_birth,   input_html: {placeholder: 'Date de naissance'}, label: false, required: true %>
+    <%= f.input :place_of_birth,       input_html: {placeholder: 'Lieu de naissance'}, label: false, required: true %>
+    <%= f.input :departement_of_birth, input_html: {placeholder: 'Département de naissance'}, label: false, required: false %>
+    <%= f.input :country_of_birth,     input_html: {placeholder: 'Pays de naissance'}, label: false, required: true %>
+    <%= f.button :submit, "Nouvel employé", class: "company_create_form_button" %>
+  <% end %>
+
+  <hr>
+
+  <p>
+    Lier un autre utilisateur à <%= @company.name %> :
+  </p>
+  <%= simple_form_for([@company, @company_link]) do |f| %>
+    <%= f.input :user,
+                input_html: {
+                  type: 'email',
+                  name: 'email',
+                  placeholder: 'E-mail...'
+                },
+                label: false,
+                required: false %>
+    <%= f.button :submit, "OK", class: "company_create_form_button" %>
+  <% end %>
+
+  <hr>
+
+  <h3>
+    <%= link_to "Supprimer la structure",
+                company_path(@company),
+                data: {
+                  turbo_method: :delete,
+                  turbo_confirm: @company.users.length > 1 ?
+                    "#{@company.name} sera supprimée de vos structures mais sera toujours visibles par ses autres gérants" :
+                    "!!! ATTENTION !!!\n#{@company.name} et TOUS LES SPECTACLES ET FICHES DE PAIE QUI Y SONT LIÉE seront DÉFINITIVEMENT SUPPRIMÉS."
+                }
+    %>
+  </h3>
+</div>
