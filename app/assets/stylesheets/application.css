@@ -13,11 +13,11 @@
  *= require_tree .
  *= require_self
  */
- @import "home/index";
- @import "payslips/index";
- @import "payslips/show";
- @import "companies/index";
- @import "companies/show";
+ @import "app/assets/stylesheets/home/_index.scss";
+ @import "app/assets/stylesheets/payslips/_show.scss";
+ @import "app/assets/stylesheets/payslips/_index.scss";
+ @import "app/assets/stylesheets/companies/_show.scss";
+ @import "app/assets/stylesheets/companies/_index.scss";
 
  body {
    background-color: white;
