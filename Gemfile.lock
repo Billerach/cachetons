@@ -98,6 +98,10 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    devise_token_auth (1.2.2)
+      bcrypt (~> 3.0)
+      devise (> 3.5.2, < 5)
+      rails (>= 4.2.0, < 7.1)
     dotenv (2.8.1)
     dotenv-rails (2.8.1)
       dotenv (= 2.8.1)
@@ -255,6 +259,7 @@ DEPENDENCIES
   country_select
   debug
   devise
+  devise_token_auth
   dotenv-rails
   importmap-rails
   jbuilder
