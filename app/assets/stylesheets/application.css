@@ -13,6 +13,10 @@
  *= require_tree .
  *= require_self
  */
+
+/* External librairies */
+@import "font-awesome";
+
  @import "app/assets/stylesheets/home/_index.scss";
  @import "app/assets/stylesheets/payslips/_show.scss";
  @import "app/assets/stylesheets/payslips/_index.scss";

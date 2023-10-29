@@ -77,3 +77,4 @@ gem 'country_select'
 gem 'sass-rails'
 gem 'dotenv-rails'
 gem 'devise_token_auth'
+gem 'font-awesome-sass', "~> 6.1"
