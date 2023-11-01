@@ -1,49 +1,52 @@
 .banner{
-  height : 100px;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 1)), url(banner-cachetons-weboptimized.jpg);
+  background-size: cover;
+  padding: 100px 0;
+
+  h1 {
+    font: 4rem 'Arvo', serif;
+    letter-spacing: 5px;
+    margin: 0;
+    color: black;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  }
 }
 
-.home_nav{
-  display: flex;
-  vertical-align: middle;
-}
+#home_nav{
 
-.home_nav a{
-  font-family: "Helvetica", "Arial", sans-serif;
-  border: 1px solid rgb(46, 163, 157);
-  color: rgb(46, 163, 157);
-  display: block;
-  border-radius: 30px;
-  margin: 15px auto 0;
-  width:450px;
-  height:29px;
-  line-height: 30px;
-  letter-spacing: 3px;
-  text-decoration: none;
-  text-align: center;
-  font-size: 20px;
-  text-transform: uppercase;
-  transition: all 0.5s;
-}
+  padding-top:30px;
 
-.home_nav a:hover{
-  width:100%;
-  height:60px;
-  line-height: 59px;
-  margin: 0 auto;
-  border-radius:0;
-  border-left: none;
-  border-right: none;
-  color: rgb(117, 212, 208);
-}
+  :active{
+    background-color: rgb(46, 163, 157);
+  }
 
-.home_nav :active{
-  background-color: rgb(46, 163, 157);
-}
+  a{
+    font-family: "Helvetica", "Arial", sans-serif;
+    border: 1px solid rgb(46, 163, 157);
+    color: rgb(46, 163, 157);
+    display: block;
+    border-radius: 30px;
+    margin: 15px auto 0;
+    width:450px;
+    height:29px;
+    line-height: 30px;
+    letter-spacing: 3px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 20px;
+    text-transform: uppercase;
+    transition: all 0.5s;
+  }
 
-.card_call_for_projects{
-  border: 1px solid black;
-  border-radius:5px;
-  list-style-type: none;
-  margin-top: 30px;
-  padding:10px;
+  a:hover{
+    width:100%;
+    height:60px;
+    line-height: 59px;
+    margin: 0 auto;
+    border-radius:0;
+    border-left: none;
+    border-right: none;
+    color: rgb(117, 212, 208);
+  }
+
 }
