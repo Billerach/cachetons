@@ -15,10 +15,10 @@
   </head>
 
   <body>
-      <% unless current_page?('/') %>
-        <%= render "shared/navbar" %>
-        <%= render "shared/flashes" %>
-      <% end %>
-      <%= yield %>
+    <% unless current_page?('/') || current_page?('/users/sign_in')%>
+      <%= render "shared/navbar" %>
+      <%= render "shared/flashes" %>
+    <% end %>
+    <%= yield %>
   </body>
 </html>

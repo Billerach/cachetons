@@ -7,19 +7,17 @@
 @import "home/index";
 @import "companies/index";
 @import "companies/show";
+@import "devise/sessions/new";
 
-.body{
+body{
   display: flex;
   background-color: white;
   color:black;
-}
-
-.devise_container{
-  border : 1px solid red;
-  width:200px;
-  margin: 0 auto;
+  flex-direction: column;
 }
 
 .navbar{
   border : 1px solid red;
+  width : 20%;
+  height : 100%;
 }
