@@ -1,46 +1,11 @@
-.devise_container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-}
-
-Style the form itself
-.devise_container form {
+form{
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 20px;
   border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0,0.25);
   width: 400px;
 }
-
-// // Style the form fields
-// .form-inputs input[type="email"],
-// .form-inputs input[type="password"] {
-//   width: 100%;
-//   padding: 10px;
-//   margin-bottom: 20px;
-//   border: 1px solid #ccc;
-//   border-radius: 5px;
-// }
-
-// // Style the form submit button
-// .sign-in-form input[type="submit"] {
-//   background-color: #007bff;
-//   color: #fff;
-//   padding: 10px 20px;
-//   border: none;
-//   border-radius: 5px;
-//   cursor: pointer;
-//   transition: background-color 0.3s ease-in-out;
-// }
-
-// .sign-in-form input[type="submit"]:hover {
-//   background-color: #0069d9;
-// }

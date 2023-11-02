@@ -1,3 +1,5 @@
+@import "../variables";
+
 .banner{
   background-image: linear-gradient(rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 1)), url(banner-cachetons-weboptimized.jpg);
   background-size: cover;
@@ -17,13 +19,13 @@
   padding-top:30px;
 
   :active{
-    background-color: rgb(46, 163, 157);
+    background-color: $bleuvert;
   }
 
   a{
     font-family: "Helvetica", "Arial", sans-serif;
-    border: 1px solid rgb(46, 163, 157);
-    color: rgb(46, 163, 157);
+    border: 1px solid $bleuvert;
+    color: $bleuvert;
     display: block;
     border-radius: 30px;
     margin: 15px auto 0;
@@ -46,7 +48,7 @@
     border-radius:0;
     border-left: none;
     border-right: none;
-    color: rgb(117, 212, 208);
+    color: $light-bleuvert;
   }
 
 }
