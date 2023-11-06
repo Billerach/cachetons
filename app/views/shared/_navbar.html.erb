@@ -1,37 +1,36 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
-    <%= link_to "/", class: "navbar-brand" do %>
-      <%= image_tag "home.png" %>
-    <% end %>
-
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+<div class="navbar_container">
+  <%= link_to "/", class: "home_icon" do %>
+    <i class="fa-solid fa-masks-theater"></i>
+  <% end %>
+  <%# <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button> %>
 
 
-  <div>
-    <% if user_signed_in? %>
-      <% case params[:controller] %>
-      <% when "companies" %>
-        <%= link_to "Liste des compagnies", companies_path unless params[:action] == "index" %>
-      <% when "job_profiles" %>
-        <%= link_to "Liste des compagnies", companies_path %>
-        <%= link_to "Vos modèles", job_profiles_url unless params[:action] == "index" %>
-      <% when "employees" %>
-        <%= link_to "Liste des compagnies", companies_path %>
-        <%= link_to "Tableau de bord de la structure", company_path(@employee.company.id) %>
-      <% when "payslips" %>
-        <%= link_to "Liste des compagnies", companies_path %>
-        <% if params[:action] == "index" %>
-          <%= link_to "Tableau de bord de la structure", company_path(@company.id) %>
-        <% else %>
-          <%= link_to "Tableau de bord de la structure", company_path(@payslip.company.id) %>
-          <%= link_to "Liste des fiches de paye", company_payslips_path(@payslip.company.id) %>
+  <% if user_signed_in? %>
+    <% unless params == {"controller"=>"companies", "action"=>"index"} %>
+      <div class="navbar_links">
+        <% case params[:controller] %>
+        <% when "companies" %>
+          <%= link_to "Liste des compagnies", companies_path %>
+        <% when "job_profiles" %>
+          <%= link_to "Liste des compagnies", companies_path %>
+          <%= link_to "Vos modèles", job_profiles_url unless params[:action] == "index" %>
+        <% when "employees" %>
+          <%= link_to "Liste des compagnies", companies_path %>
+          <%= link_to "Tableau de bord de la structure", company_path(@employee.company.id) %>
+        <% when "payslips" %>
+          <%= link_to "Liste des compagnies", companies_path %>
+          <% if params[:action] == "index" %>
+            <%= link_to "Tableau de bord de la structure", company_path(@company.id) %>
+          <% else %>
+            <%= link_to "Tableau de bord de la structure", company_path(@payslip.company.id) %>
+            <%= link_to "Liste des fiches de paye", company_payslips_path(@payslip.company.id) %>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
     <% end %>
-
-</div>
+  <% end %>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
