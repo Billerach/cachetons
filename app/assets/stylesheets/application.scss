@@ -9,13 +9,14 @@
 @import "companies/show";
 @import "devise/sessions/new";
 @import "shared/navbar";
+@import "variables";
 
 body{
   display: flex;
-  background-color: white;
+  background-color: $ultralight-bleuvert;
   color:black;
-  flex-direction: column;
   font: 1rem 'Prompt', serif;
+  margin : 0;
 }
 
 h2{

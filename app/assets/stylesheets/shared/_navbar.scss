@@ -1,6 +1,12 @@
+@import "../variables";
+
 .navbar_container{
   width : 20%;
-  height : 100%;
+  background-color : $light-bleuvert;
+  padding:20px;
 }
 
-#test{border: 1px solid red;}
+.home_icon{
+  border : 1px solid red;
+  font-size:40px;
+}

@@ -1,6 +1,10 @@
-<h1>Vos structures<i class="fa-solid fa-pen"></i></h1>
-<p><%= link_to "Vos modèles de fiche de paie", job_profiles_url %></p>
 <div id="companies_board_container">
+  <h1>
+    Vos structures<i class="fa-solid fa-pen"></i>
+  </h1>
+  <p>
+    <%= link_to "Vos modèles de fiche de paie", job_profiles_url %>
+  </p>
   <% if @companies.present? %>
     <ul class='companies_board_title'>
       <% @companies.each do |company| %>
@@ -12,9 +16,11 @@
       <% end %>
     </ul>
   <% else %>
-   <p>Vous n'avez encore enregistré aucune structure.</p>
+    <p>
+      Vous n'avez encore enregistré aucune structure.
+    </p>
   <% end %>
-  <div id="no_result">
+    <div id="no_result">
     <%= simple_form_for(@company) do |f| %>
       <%= f.input :name, label: "Nom" %>
       <%= f.input :siret, label: "SIRET" %>
