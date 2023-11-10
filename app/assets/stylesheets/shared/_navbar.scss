@@ -3,10 +3,27 @@
 .navbar_container{
   width : 20%;
   background-color : $light-bleuvert;
-  padding:20px;
+  padding:10px;
+  border : $t;
 }
 
-.home_icon{
-  border : 1px solid red;
-  font-size:40px;
+#navbar_title{
+  display : flex;
+  
+  border : $t2;
+
+  h1{
+    border : $t3;
+    font-family: $primary_font;
+    font-size: 40px;
+    color : white;
+    text-decoration: none;
+    letter-spacing: 2px;
+  }
+
+  small{
+    margin-left: 10px;
+    font-size: 20px;
+  }
+
 }

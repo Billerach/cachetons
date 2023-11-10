@@ -15,10 +15,11 @@ body{
   display: flex;
   background-color: $ultralight-bleuvert;
   color:black;
-  font: 1rem 'Prompt', serif;
+  font: 1rem $secondary_font;
   margin : 0;
+  height : 100vh;
 }
 
 h2{
-  font: 2rem 'Arvo', serif;
+  font: 2rem $primary_font;
 }

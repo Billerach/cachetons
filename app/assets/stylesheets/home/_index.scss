@@ -1,5 +1,7 @@
 @import "../variables";
 
+#home_container{width:100%;}
+
 .banner{
   background-image: linear-gradient(rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 1)), url(banner-cachetons-weboptimized.jpg);
   background-size: cover;
