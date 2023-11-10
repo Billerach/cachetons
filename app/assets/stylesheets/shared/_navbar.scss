@@ -3,22 +3,25 @@
 .navbar_container{
   width : 20%;
   background-color : $light-bleuvert;
-  padding:10px;
-  border : $t;
+  padding: 20px;
+
+  h2{
+    font-family: $secondary_font;
+    text-transform: uppercase;
+    font-size: 1rem;
+  }
 }
 
 #navbar_title{
   display : flex;
-  
-  border : $t2;
 
   h1{
-    border : $t3;
     font-family: $primary_font;
     font-size: 40px;
     color : white;
     text-decoration: none;
     letter-spacing: 2px;
+    margin:10px;
   }
 
   small{
@@ -26,4 +29,32 @@
     font-size: 20px;
   }
 
+}
+
+.navbar_links{
+  border : 1px solid $bleuvert;
+
+  li{
+    list-style-type: none;
+    text-transform: uppercase;
+    font-size: 1rem;
+  }
+
+  a{
+    text-decoration: none;
+    color: black;
+    transition: color 0.3s;
+  }
+
+  a:hover{
+    color: $ultralight-bleuvert;
+  }
+}
+
+.navbar_user_links{
+  li{
+    list-style-type: none;
+    text-transform: uppercase;
+    font-size: 1rem;
+  }
 }

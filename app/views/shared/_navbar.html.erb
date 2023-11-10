@@ -6,54 +6,44 @@
       </h1>
     <% end %>
   </div>
+
   <%# <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button> %>
 
-
   <% if user_signed_in? %>
     <% unless params == {"controller"=>"companies", "action"=>"index"} %>
-      <div class="navbar_links">
-        <% case params[:controller] %>
-        <% when "companies" %>
-          <%= link_to "Liste des compagnies", companies_path %>
-        <% when "job_profiles" %>
-          <%= link_to "Liste des compagnies", companies_path %>
-          <%= link_to "Vos modèles", job_profiles_url unless params[:action] == "index" %>
-        <% when "employees" %>
-          <%= link_to "Liste des compagnies", companies_path %>
-          <%= link_to "Tableau de bord de la structure", company_path(@employee.company.id) %>
-        <% when "payslips" %>
-          <%= link_to "Liste des compagnies", companies_path %>
-          <% if params[:action] == "index" %>
-            <%= link_to "Tableau de bord de la structure", company_path(@company.id) %>
-          <% else %>
-            <%= link_to "Tableau de bord de la structure", company_path(@payslip.company.id) %>
-            <%= link_to "Liste des fiches de paye", company_payslips_path(@payslip.company.id) %>
+      <nav class="navbar_links">
+        <ul>
+          <% case params[:controller] %>
+          <% when "companies" %>
+            <li><%= link_to "Vos structures", companies_path %></li>
+          <% when "job_profiles" %>
+            <li><%= link_to "Vos structures", companies_path %></li>
+            <li><%= link_to "Vos modèles", job_profiles_url unless params[:action] == "index" %></li>
+          <% when "employees" %>
+            <li><%= link_to "Vos structures", companies_path %></li>
+            <li><%= link_to @employee.company.name, company_path(@employee.company.id) %></li>
+          <% when "payslips" %>
+            <li><%= link_to "Vos structures", companies_path %></li>
+            <% case params[:action] %>
+            <% when "index" %>
+              <li><%= link_to @company.name, company_path(@company.id) %></li>
+            <% when "show" %>
+              <li><%= link_to @payslip.company.name, company_path(@payslip.company.id) %></li>
+              <li><%= link_to "Liste des fiches de paye", company_payslips_path(@payslip.company.id) %></li>
+            <% end %>
           <% end %>
-        <% end %>
-      </div>
+        </ul>
+      </nav>
     <% end %>
-  <% end %>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-        <% if user_signed_in? %>
-          <li class="nav-item dropdown">
-            <%= current_user.email %>
-            <%# <%= image_tag "logout.png", class: "dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %> %>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Vos modèles", job_profiles_url, class: "dropdown-item" %>
-              <%= link_to "Vos cotisations", contributions_url, class: "dropdown-item" %>
-              <%= link_to "Vos paramètres", "#", class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-            </div>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          </li>
-        <% end %>
+    <h2><%= current_user.email %></h2>
+    <div class="navbar_user_links">
+      <ul>
+        <li><%= link_to "Vos modèles", job_profiles_url, class: "dropdown-item" %></li>
+        <%# <li><%= link_to "Vos cotisations", contributions_url, class: "dropdown-item" %><!--/li> TODO <-->
+        <li><%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %></li>
       </ul>
     </div>
-  </div>
+  <% end %>
 </div>
