@@ -1,16 +1,16 @@
 <div id="companies_board_container">
   <h1>
-    Vos structures<i class="fa-solid fa-pen"></i>
+    Vos structures
   </h1>
-  <p>
-    <%= link_to "Vos modèles de fiche de paie", job_profiles_url %>
-  </p>
   <% if @companies.present? %>
     <ul class='companies_board_title'>
       <% @companies.each do |company| %>
         <li>
           <div class="company_card">
             <%= link_to company.name, company_path(company) %>
+            <p>
+              <%= company.specialty %>
+            </p>
           </div>
         </li>
       <% end %>

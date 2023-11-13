@@ -38,9 +38,9 @@ puts "Users created"
 
 puts "Creatings COMPANIES"
 
-company1 = Company.create!(name: "Les cantonniers de Corcové", siret: "123 568 941 00056", naf: "90.01Z", address: "3 rue dugenou, 44156 Pâté-sur-mer", license_number: "1076958")
-company2 = Company.create!(name: "Pumped Up", siret: "124 456 789 00025", naf: "90.01Z", address: "47 boulevard de la seed, 13568 Lingottière", license_number: "1076598")
-company3 = Company.create!(name: "Les illusionnés du bocal", siret: "125 741 258 00963", naf: "90.01Z", address: "ZI La bellevie, 92125 Industrielle-sur-Oise", license_number: "1078552")
+company1 = Company.create!(name: "Les cantonniers de Corcové", siret: "123 568 941 00056", naf: "90.01Z", address: "3 rue dugenou, 44156 Pâté-sur-mer", license_number: "1076958", specialty:"troupe de théâtre")
+company2 = Company.create!(name: "Pumped Up", siret: "124 456 789 00025", naf: "90.01Z", address: "47 boulevard de la seed, 13568 Lingottière", license_number: "1076598", specialty:"groupe de musique")
+company3 = Company.create!(name: "Les illusionnés du bocal", siret: "125 741 258 00963", naf: "90.01Z", address: "ZI La bellevie, 92125 Industrielle-sur-Oise", license_number: "1078552", specialty:"companie de danse")
 
 puts "Companies created"
 

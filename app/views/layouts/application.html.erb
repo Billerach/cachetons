@@ -16,10 +16,10 @@
   </head>
 
   <body>
-    <% unless current_page?('/') || current_page?('/users/sign_in')%>
-      <%= render "shared/navbar" %>
-      <%= render "shared/flashes" %>
-    <% end %>
-    <%= yield %>
+    <%= render "shared/navbar" unless params[:controller] == "devise/sessions" || params[:controller] == "home" %>
+    <%= render "shared/flashes" %>
+    <div class="rended_page">
+      <%= yield %>
+    </div>
   </body>
 </html>
