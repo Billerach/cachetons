@@ -3,7 +3,7 @@
     Vos structures
   </h1>
   <% if @companies.present? %>
-    <ul class='companies_board_title'>
+    <ul>
       <% @companies.each do |company| %>
         <li>
           <div class="company_card">
@@ -20,7 +20,10 @@
       Vous n'avez encore enregistré aucune structure.
     </p>
   <% end %>
-    <div id="no_result">
+    <div id="new_company_button">
+      <button data-controller="add-company-button">+</button>
+    </div>
+    <div id="new_company_form">
     <%= simple_form_for(@company) do |f| %>
       <%= f.input :name, label: "Nom" %>
       <%= f.input :siret, label: "SIRET" %>
