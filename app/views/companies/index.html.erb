@@ -20,10 +20,10 @@
       Vous n'avez encore enregistré aucune structure.
     </p>
   <% end %>
-    <div id="new_company_button">
-      <button data-controller="add-company-button">+</button>
+    <div id="new_company_button" data-controller="add-company">
+      <button data-action="click->togglableElement#fire">+</button>
     </div>
-    <div id="new_company_form">
+  <div id="new_company_form" data-add-company-target="togglableElement" class="d-none">
     <%= simple_form_for(@company) do |f| %>
       <%= f.input :name, label: "Nom" %>
       <%= f.input :siret, label: "SIRET" %>

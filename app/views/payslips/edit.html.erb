@@ -1,7 +1,6 @@
 <div id="payslips_show_container">
   <%= form_with model: @payslip, url: company_payslip_update_url(@payslip.company), method: :patch, local: false, class: "payslips_show_infos_contract_dates" do |form| %>
   <div class="payslips_show_header">
-    <%= image_tag "home.png", class: "payslips_logo" %>
     <h1>
       <div class="payslips_show_header_title">Bulletin de paie n° <strong><%= @payslip.payslip_number %></strong></div>
       <div class="payslips_show_header_name"><%= @payslip.employee.lastname %> <%= @payslip.employee.firstname %></div>
