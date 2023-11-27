@@ -1,4 +1,6 @@
-<h1>Index des Payslips</h1>
+<h2>
+  <%= @company.name  %> : Fiches de paie.
+</h2>
 <div class="payslips_board_new_payslip">
   <%= form_with(model: @payslip, url: company_payslips_path(@company), local: false) do |form| %>
     <%= form.label :employee_id, "Nouvelle fiche de paie pour :" %>
@@ -18,7 +20,7 @@
       <% month_list = ["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre"]%>
       <% month_list.each_with_index do |month, index| %>
         <li>
-          <h3><%= month.upcase %></h3>
+          <h4><%= month.upcase %></h4>
           <div class="payslips_list">
             <% @payslips.each do |payslip| %>
               <% if payslip.contract_start? %>

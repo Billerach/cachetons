@@ -1,5 +1,5 @@
 <div id="payslips_show_container">
-  <h1>Edition d'un salarié</h1>
+  <h2>Edition d'un salarié</h2>
   <%= link_to "Annuler", company_employee_url %>
    <%= simple_form_for([@company, @employee]) do |f| %>
     <%= f.input :firstname,            input_html: {placeholder: @employee.firstname}, label: false, required: true %>

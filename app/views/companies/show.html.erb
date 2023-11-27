@@ -1,7 +1,7 @@
 <div class="company_show_container">
-<h1>Tableau de bord</h1>
+<h2>Tableau de bord</h2>
 
-<h2><%= @company.name %></h2>
+<h3><%= @company.name %></h3>
 <p>
   <strong>Siret : </strong>         <%= @company.siret %><br />
   <strong>NAF : </strong>           <%= @company.naf %><br />
@@ -10,13 +10,13 @@
 </p>
 <%= link_to "Modifier les données de la structure", edit_company_url %>
 
-  <h3 class="payslips_index_link">
+  <h4 class="payslips_index_link">
     <%= link_to "Voir toutes les fiches de paie", company_payslips_path(@company) %>
-  </h3>
+  </h4>
 
   <hr>
 
-  <h3>Spectacles de la companie :</h3>
+  <h4>Spectacles de la companie :</h4>
 
   <ul>
     <% @company.performances.each do |performance| %>
@@ -37,7 +37,7 @@
 
   <hr>
 
-  <h3>Employés de la companie :</h3>
+  <h4>Employés de la companie :</h4>
 
   <ul>
     <% @company.employees.each do |employee| %>
@@ -80,7 +80,7 @@
 
   <hr>
 
-  <h3>
+  <h4>
     <%= link_to "Supprimer la structure",
                 company_path(@company),
                 data: {
@@ -90,5 +90,5 @@
                     "!!! ATTENTION !!!\n#{@company.name} et TOUS LES SPECTACLES ET FICHES DE PAIE QUI Y SONT LIÉE seront DÉFINITIVEMENT SUPPRIMÉS."
                 }
     %>
-  </h3>
+  </h4>
 </div>

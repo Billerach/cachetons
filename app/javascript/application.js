@@ -3,6 +3,3 @@ import "@hotwired/turbo-rails"
 import "controllers"
 import { Application } from "./stimulus"
 window.Stimulus = Application.start()
-
-import AddCompanyController from "./controllers/add_company_controller.js"
-Stimulus.register("add-company-button", AddCompanyController)

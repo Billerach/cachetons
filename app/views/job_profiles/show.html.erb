@@ -1,14 +1,14 @@
 <div class="company_show_container">
-  <h1>Tableau de bord</h1>
+  <h2>Tableau de bord</h2>
 
-  <h2>
+  <h3>
     <%= @job_profile.name %>
     <small>
       <%= @job_profile.artist? ? "(artiste " : "(non-artiste " %>
       <%= @job_profile.executive? ? "cadre)" : "non-cadre)" %>
     </small>
-  </h2>
-  <h3>Cotisations associées à ce modèle :</h3>
+  </h3>
+  <h4>Cotisations associées à ce modèle :</h4>
     <ul>
       <% @contributions.each do |contribution| %>
         <li>

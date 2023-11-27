@@ -1,11 +1,17 @@
 import { Controller } from "@hotwired/stimulus"
 
-// Connects to data-controller="add-company"
 export default class extends Controller {
+  static targets = ["addCompanyForm", "addCompanyButton", "newCompanyContainer"]
+
   connect() {
   }
 
   add() {
-    console.log("added !")
-  }
+    this.addCompanyFormTarget.classList.remove("display_none");
+    this.addCompanyButtonTarget.classList.add("display_none");
+    this.newCompanyContainerTarget.insertAdjacentHTML(
+      "beforeend",
+      "<div class='blackout'></div>",
+      );
+    }
 }

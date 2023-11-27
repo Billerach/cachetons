@@ -1,5 +1,5 @@
 <div id="payslips_show_container">
-  <h1><%= @employee.lastname_with_firstname %></h1>
+  <h2><%= @employee.lastname_with_firstname %></h2>
   <%= link_to "Supprimer", company_employee_url, data: {
     turbo_method: :delete,
     turbo_confirm: "Êtes-vous sûr de vouloir supprimer les données de #{@employee.lastname_with_firstname} ?"

@@ -1,9 +1,9 @@
 <div id="payslips_show_container">
   <div class="payslips_show_header">
-    <h1>
+    <h2>
       <div class="payslips_show_header_title">Bulletin de paie n° <%= @payslip.payslip_number %></div>
       <div class="payslips_show_header_name"><%= @payslip.employee.lastname %> <%= @payslip.employee.firstname %></div>
-    </h1>
+    </h2>
   </div>
   <%= link_to "Modifier la fiche de paie", edit_company_payslip_url %>
   <% if Payslip.where(employee: @payslip.employee.id).count == @payslip.payslip_number %>

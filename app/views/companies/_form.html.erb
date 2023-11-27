@@ -1,0 +1,8 @@
+    <%= simple_form_for(@company) do |f| %>
+      <%= f.input :name, label: "Nom" %>
+      <%= f.input :siret, label: "SIRET" %>
+      <%= f.input :naf, label: "Code NAF" %>
+      <%= f.input :address, label: "Adresse" %>
+      <%= f.input :license_number, label: "Numéro de license" %>
+      <%= f.button :submit, "Ajouter une structure", class: "company_create_form_button" %>
+    <% end %>

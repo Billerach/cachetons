@@ -1,5 +1,5 @@
 <div id="payslips_show_container">
-  <h1>Edition d'un spectacle</h1>
+  <h2>Edition d'un spectacle</h2>
   <%= simple_form_for([@company, @performance]) do |f| %>
     <%= f.input :name,      input_html: {placeholder: "Titre"}, label: false, required: true %>
     <%= f.input :num_objet, input_html: {placeholder: "Numéro d'objet"}, label: false, required: true %>
