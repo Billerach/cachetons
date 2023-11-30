@@ -1,15 +1,6 @@
 <div class="company_show_container">
 <h2>Tableau de bord</h2>
 
-<h3><%= @company.name %></h3>
-<p>
-  <strong>Siret : </strong>         <%= @company.siret %><br />
-  <strong>NAF : </strong>           <%= @company.naf %><br />
-  <strong>Adresse : </strong>       <%= @company.address %><br />
-  <strong>N° de License : </strong> <%= @company.license_number %><br />
-</p>
-<%= link_to "Modifier les données de la structure", edit_company_url %>
-
   <h4 class="payslips_index_link">
     <%= link_to "Voir toutes les fiches de paie", company_payslips_path(@company) %>
   </h4>

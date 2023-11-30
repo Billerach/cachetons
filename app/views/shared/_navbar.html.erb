@@ -7,25 +7,28 @@
     <% end %>
   </div>
 
-  <%# <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button> %>
-
   <% if user_signed_in? %>
+
+    <nav class="navbar_user_links">
+      <h2><%= current_user.email %></h2>
+      <ul>
+        <li><%= link_to "Vos modèles", job_profiles_url, class: "dropdown-item" %></li>
+        <%# <li><%= link_to "Vos cotisations", contributions_url, class: "dropdown-item" %><!--/li> TODO <-->
+        <li><%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %></li>
+      </ul>
+    </nav>
+
+
     <% unless params == {"controller"=>"companies", "action"=>"index"} %>
       <nav class="navbar_links">
+        <h2><%= link_to "Toutes vos structures", companies_path %></h2>
         <ul>
           <% case params[:controller] %>
-          <% when "companies" %>
-            <li><%= link_to "Vos structures", companies_path %></li>
           <% when "job_profiles" %>
-            <li><%= link_to "Vos structures", companies_path %></li>
             <li><%= link_to "Vos modèles", job_profiles_url unless params[:action] == "index" %></li>
           <% when "employees" %>
-            <li><%= link_to "Vos structures", companies_path %></li>
             <li><%= link_to @employee.company.name, company_path(@employee.company.id) %></li>
           <% when "payslips" %>
-            <li><%= link_to "Vos structures", companies_path %></li>
             <% case params[:action] %>
             <% when "index" %>
               <li><%= link_to @company.name, company_path(@company.id) %></li>
@@ -37,13 +40,18 @@
         </ul>
       </nav>
     <% end %>
-    <h2><%= current_user.email %></h2>
-    <div class="navbar_user_links">
-      <ul>
-        <li><%= link_to "Vos modèles", job_profiles_url, class: "dropdown-item" %></li>
-        <%# <li><%= link_to "Vos cotisations", contributions_url, class: "dropdown-item" %><!--/li> TODO <-->
-        <li><%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %></li>
-      </ul>
-    </div>
+
+    <% if params[:controller] == "companies" && params[:action] == "show" %>
+      <div class="company_administration_data">
+        <h2><%= @company.name %></h2>
+        <p>
+          <strong>Siret : </strong>         <%= @company.siret %><br />
+          <strong>NAF : </strong>           <%= @company.naf %><br />
+          <strong>Adresse : </strong>       <%= @company.address %><br />
+          <strong>N° de License : </strong> <%= @company.license_number %><br />
+        </p>
+        <%= link_to "Modifier les données de la structure", edit_company_url %>
+      </div>
+    <% end %>
   <% end %>
 </div>
