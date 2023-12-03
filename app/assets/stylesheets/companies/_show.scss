@@ -1,27 +1,20 @@
-.company_show_container {
-  display: block;
-  width: 90%;
-  margin: auto;
+@import "../variables";
 
-  table {
-    margin-bottom: 2em;
+.company_show_container {
+  display: flex;
+  flex-direction: column;
+  width:100%;
+  padding : 20px;
+
+  h2{
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    line-height: 40px;
+    text-decoration: underline $light-bleuvert;
   }
 }
 
-// targets simple_form_for new company_link
-#new_company_link {
-  display: flex;
-
-  input[type='email'] {
-    display: block;
-    width: 30ch;
-
-    ::placeholder {
-      font-style: italic;
-    }
-  }
-  input[type='submit'] {
-    display: block;
-    height: fit-content;
-  }
+.payslips_index_link{
+  border: 1px solid red;
 }
