@@ -24,34 +24,25 @@
         <h2><%= link_to "Toutes vos structures", companies_path %></h2>
         <ul>
           <% case params[:controller] %>
-          <% when "job_profiles" %>
-            <li><%= link_to "Vos modèles", job_profiles_url unless params[:action] == "index" %></li>
-          <% when "employees" %>
-            <li><%= link_to @employee.company.name, company_path(@employee.company.id) %></li>
-          <% when "payslips" %>
-            <% case params[:action] %>
-            <% when "index" %>
-              <li><%= link_to @company.name, company_path(@company.id) %></li>
-            <% when "show" %>
-              <li><%= link_to @payslip.company.name, company_path(@payslip.company.id) %></li>
-              <li><%= link_to "Liste des fiches de paye", company_payslips_path(@payslip.company.id) %></li>
+            <% when "employees" %>
+              <li><%= link_to @employee.company.name, company_path(@employee.company.id) %></li>
+            <% when "payslips" %>
+              <% case params[:action] %>
+              <% when "index" %>
+                <li><%= link_to @company.name, company_path(@company.id) %></li>
+              <% when "show" %>
+                <li><%= link_to @payslip.company.name, company_path(@payslip.company.id) %></li>
+                <li><%= link_to "Liste des fiches de paye", company_payslips_path(@payslip.company.id) %></li>
             <% end %>
           <% end %>
         </ul>
       </nav>
     <% end %>
 
-    <% if params[:controller] == "companies" && params[:action] == "show" %>
-      <div class="company_administration_data">
-        <h2><%= @company.name %></h2>
-        <p>
-          <strong>Siret : </strong>         <%= @company.siret %><br />
-          <strong>NAF : </strong>           <%= @company.naf %><br />
-          <strong>Adresse : </strong>       <%= @company.address %><br />
-          <strong>N° de License : </strong> <%= @company.license_number %><br />
-        </p>
-        <%= link_to "Modifier les données de la structure", edit_company_url %>
-      </div>
+    <% ["companies", "payslips", "employees", "performances"].each do |controller| %>
+      <% if params[:controller] == controller %>
+        <%= render "shared/administration_data" unless controller == "companies" && params[:action] == "index" %>
+      <% end %>
     <% end %>
   <% end %>
 </div>
