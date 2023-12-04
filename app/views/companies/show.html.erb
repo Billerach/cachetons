@@ -8,17 +8,14 @@
     <h4><%= link_to "Voir toutes les fiches de paie", company_payslips_path(@company) %></h4>
   </div>
 
-  <hr>
-
-  <h4>Spectacles de la companie :</h4>
-
+<div class="company_performances">
+  <h4><%= @company.name %> : Les spectacles</h4>
   <ul>
     <% @company.performances.each do |performance| %>
       <li>
         <%= link_to "#{performance.name} : #{performance.num_objet} (#{performance.payslips.count})", company_payslips_path(@company, performance:) %>
         <%= link_to "Modifier", edit_company_performance_path(@company, performance) %>
-        <%= link_to "Supprimer", company_performance_url(@company, performance), data: {turbo_method: :delete, turbo_confirm: "Êtes-vous sûr de vouloir supprimer #{performance.name} ?"
-    } %>
+        <%= link_to "Supprimer", company_performance_url(@company, performance), data: {turbo_method: :delete, turbo_confirm: "Êtes-vous sûr de vouloir supprimer #{performance.name} ?" } %>
       </li>
     <% end %>
   </ul>
@@ -28,8 +25,7 @@
     <%= f.input :num_objet, input_html: {placeholder: "Numéro d'objet"}, label: false, required: true %>
     <%= f.button :submit, "Nouveau spectacle", class: "company_create_form_button" %>
   <% end %>
-
-  <hr>
+</div>
 
   <h4>Employés de la companie :</h4>
 

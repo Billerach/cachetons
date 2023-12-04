@@ -1,20 +1,5 @@
 @import "../variables";
 
-.display_none{
-  display: none;
-}
-
-.blackout{
-  position: absolute;
-  top:0;
-  left:0;
-  z-index: 1;
-  width: 100%;
-  height: 100vh;
-  background-color: black;
-  opacity: 50%;
-}
-
 #companies_board_container{
   display: flex;
   flex-direction: column ;
@@ -27,6 +12,15 @@
   li{
     margin-top: 30px;
   }
+}
+
+.company_list{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width:100%;
+  margin: 0 auto;
+  padding:0;
 }
 
 .company_card{
@@ -54,6 +48,21 @@
     margin-bottom: 10px;
     color: $bleuvert;
   }
+}
+
+.display_none{
+  display: none;
+}
+
+.blackout{
+  position: absolute;
+  top:0;
+  left:0;
+  z-index: 1;
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+  opacity: 50%;
 }
 
 #company_create_form_button{
