@@ -19,12 +19,13 @@
       </li>
     <% end %>
   </ul>
-
-  <%= simple_form_for([@company, @performance]) do |f| %>
-    <%= f.input :name,      input_html: {placeholder: "Titre"}, label: false, required: true %>
-    <%= f.input :num_objet, input_html: {placeholder: "Numéro d'objet"}, label: false, required: true %>
-    <%= f.button :submit, "Nouveau spectacle", class: "company_create_form_button" %>
-  <% end %>
+  <div class="company_new_performance">
+    <%= simple_form_for([@company, @performance]) do |f| %>
+      <%= f.input :name,      input_html: {placeholder: "Titre"}, label: false, required: true %>
+      <%= f.input :num_objet, input_html: {placeholder: "Numéro d'objet"}, label: false, required: true %>
+      <%= f.button :submit, "Nouveau spectacle", class: "company_create_form_button" %>
+    <% end %>
+  </div>
 </div>
 
   <h4>Employés de la companie :</h4>

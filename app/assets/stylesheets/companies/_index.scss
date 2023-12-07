@@ -145,7 +145,11 @@
   }
 
   .required input:hover, .optional input:hover{
-    border: 2px solid $light-bleuvert;
+    border: 1px solid $light-bleuvert;
     transition: all 0.5s;
+  }
+
+  #company_siret:focus{
+    border: 1px solid $bleuvert;
   }
 }
