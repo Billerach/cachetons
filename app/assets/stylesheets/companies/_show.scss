@@ -66,8 +66,21 @@
 }
 
 .performance_card{
+  width: 200px;
   img{
     max-height: 200px;
+  }
+}
+.performance_card_edit{
+  a{
+    position: relative;
+    top:0px;
+    right:0px;
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid red;
   }
 }
 
