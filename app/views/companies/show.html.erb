@@ -13,9 +13,27 @@
   <ul>
     <% @company.performances.each do |performance| %>
       <li>
-        <%= link_to "#{performance.name} : #{performance.num_objet} (#{performance.payslips.count})", company_payslips_path(@company, performance:) %>
-        <%= link_to "Modifier", edit_company_performance_path(@company, performance) %>
-        <%= link_to "Supprimer", company_performance_url(@company, performance), data: {turbo_method: :delete, turbo_confirm: "Êtes-vous sûr de vouloir supprimer #{performance.name} ?" } %>
+        <div class="performance_card">
+          <%= link_to company_payslips_path(@company, performance:) do %>
+            <%= image_tag "performances.jpg", alt: "Image affiche de #{performance.name}" %>
+            <div class="performance_card_infos">
+              <h5><%= performance.name %></h5>
+              <p><%= performance.num_objet %></p>
+              <p>
+                <% case performance.payslips.count %>
+                <% when 0 %>
+                  Aucune fiche de paie
+                <% when 1 %>
+                  1 fiche de paie
+                <% else %>
+                  <%= "#{performance.payslips.count} fiches de paie" %>
+                <% end %>
+              </p>
+              <%= link_to "Modifier", edit_company_performance_path(@company, performance) %>
+              <%= link_to "Supprimer", company_performance_url(@company, performance), data: {turbo_method: :delete, turbo_confirm: "Êtes-vous sûr de vouloir supprimer #{performance.name} ?" } %>
+            </div>
+          <% end %>
+        </div>
       </li>
     <% end %>
   </ul>

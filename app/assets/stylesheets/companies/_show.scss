@@ -55,19 +55,19 @@
   }
 
   li{
-    width:100px;
-    height:100px;
     list-style-type: none;
     padding:3px;
     margin: 6px;
-    border : 1px solid $grey200;
+    border : 1px solid $grey150;
     background-color:$grey250;
     border-radius: 5px;
-    font-size:14px;
-    color:rgb(46, 163, 157);
-    text-decoration: none;
-    line-height: 30px;
     overflow: hidden;
+  }
+}
+
+.performance_card{
+  img{
+    max-height: 200px;
   }
 }
 
