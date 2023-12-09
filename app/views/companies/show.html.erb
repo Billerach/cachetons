@@ -14,11 +14,11 @@
     <% @company.performances.each do |performance| %>
       <li>
         <div class="performance_card">
-          <div class="performance_card_edit">
-            <%= link_to edit_company_performance_path(@company, performance) do %>
-              <i class="fa-solid fa-pencil"></i>
-            <% end %>
-          </div>
+          <%= link_to edit_company_performance_path(@company, performance), class: "performance_card_edit" do %>
+            <h1>
+              <i class="fa-brands fa-redhat"><small>Cachetons</small></i>
+            </h1>
+          <% end %>
           <%= link_to company_payslips_path(@company, performance:) do %>
             <%= image_tag "performances.jpg", alt: "Image affiche de #{performance.name}" %>
             <div class="performance_card_infos">
