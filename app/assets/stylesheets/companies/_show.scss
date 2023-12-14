@@ -54,40 +54,80 @@
     grid-gap: 20px;
   }
 
-  li{
-    list-style-type: none;
-    padding:3px;
-    margin: 6px;
-    border : 1px solid $grey150;
-    background-color:$grey250;
-    border-radius: 5px;
-    overflow: hidden;
-  }
 }
 
 .performance_card{
+
   width: 200px;
+  list-style-type: none;
+  border : 1px solid $grey200-opacity25;
+  background-color:$grey250;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px 1px $grey200-opacity25;
+  overflow: hidden;
+
   img{
     max-height: 200px;
-    object-fit: fill;
+    object-fit: cover;
   }
 }
-.performance_card_edit{
+
+.performance_card_button{
+  height: 0;
   a{
     position: relative;
-    top:0px;
-    right:0px;
+    right: -161px;
     display: block;
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    border: 1px solid red;
+    border: 1px solid $grey150;
+    font-size: 16px;
+    color: $grey150;
+    text-align: center;
+    background-color: $grey250;
+  }
+
+  a:hover{
+    border: 1px solid $bleuvert;
+    color: $grey250;
+    transition: all 0.25s;
+  }
+
+  i{
+    position: relative;
+    top:3px;
+  }
+}
+
+.performance_card_edit a{
+  top:6px;
+
+  &:hover{
+    background-color: $light-bleuvert;
+  }
+}
+
+.performance_card_delete a{
+  top:160px;
+
+  &:hover{
+    background-color: $red;
   }
 }
 
 .company_new_performance{
   display: flex;
   flex-direction: row-reverse;
+}
+
+.performance_card_infos{
+  color: black;
+  padding:10px;
+
+  h5{
+    font: 1rem $primary_font;
+  }
 }
 
 .company_new_performance form{

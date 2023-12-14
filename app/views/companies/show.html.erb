@@ -12,34 +12,34 @@
   <h4><%= @company.name %> : Les spectacles</h4>
   <ul>
     <% @company.performances.each do |performance| %>
-      <li>
-        <div class="performance_card">
-          <%= link_to edit_company_performance_path(@company, performance), class: "performance_card_edit" do %>
-            <h1>
-              <i class="fa-brands fa-redhat"><small>Cachetons</small></i>
-            </h1>
-          <% end %>
-          <%= link_to company_payslips_path(@company, performance:) do %>
-            <%= image_tag "performances.jpg", alt: "Image affiche de #{performance.name}" %>
-            <div class="performance_card_infos">
-              <h5><%= performance.name %></h5>
-              <p><%= performance.num_objet %></p>
-              <p>
-                <% case performance.payslips.count %>
-                <% when 0 %>
-                  Aucune fiche de paie
-                <% when 1 %>
-                  1 fiche de paie
-                <% else %>
-                  <%= "#{performance.payslips.count} fiches de paie" %>
-                <% end %>
-              </p>
-              <div class="performance_card_delete">
-                <%= link_to "Supprimer", company_performance_url(@company, performance), data: {turbo_method: :delete, turbo_confirm: "Êtes-vous sûr de vouloir supprimer #{performance.name} ?" } %>
-              </div>
-            </div>
+      <li class="performance_card">
+        <div class= "performance_card_button performance_card_edit">
+          <%= link_to edit_company_performance_path(@company, performance) do %>
+              <i class="fa-solid fa-pencil"></i>
           <% end %>
         </div>
+        <div class="performance_card_button performance_card_delete">
+          <%= link_to company_performance_url(@company, performance), data: {turbo_method: :delete, turbo_confirm: "Êtes-vous sûr de vouloir supprimer #{performance.name} ?" } do %>
+            <i class="fa-solid fa-trash-can"></i>
+          <% end %>
+        </div>
+        <%= link_to company_payslips_path(@company, performance:) do %>
+          <%= image_tag "performances.jpg", alt: "Image affiche de #{performance.name}" %>
+          <div class="performance_card_infos">
+            <h5><%= performance.name %></h5>
+            <p><%= performance.num_objet %></p>
+            <p>
+              <% case performance.payslips.count %>
+              <% when 0 %>
+                Aucune fiche de paie
+              <% when 1 %>
+                1 fiche de paie
+              <% else %>
+                <%= "#{performance.payslips.count} fiches de paie" %>
+              <% end %>
+            </p>
+          </div>
+        <% end %>
       </li>
     <% end %>
   </ul>
