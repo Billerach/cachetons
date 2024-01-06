@@ -42,4 +42,4 @@
 .env*
 
 # Ignore specific environments configurations.
-/environments
+config/environments
