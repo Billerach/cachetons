@@ -42,4 +42,5 @@
 .env*
 
 # Ignore specific environments configurations.
-config/environments
+config/environments/development.rb
+config/environments/production.rb
