@@ -1,0 +1,85 @@
+I, [2024-01-10T08:29:04.428158 #2143961]  INFO -- : [03410b47-7d77-4d6a-89a9-76c571fba368] Started GET "/" for 94.228.189.238 at 2024-01-10 08:29:04 +0000
+I, [2024-01-10T08:29:04.432196 #2143961]  INFO -- : [03410b47-7d77-4d6a-89a9-76c571fba368] Processing by HomeController#index as HTML
+I, [2024-01-10T08:29:04.436216 #2143961]  INFO -- : [03410b47-7d77-4d6a-89a9-76c571fba368]   Rendered home/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 392)
+I, [2024-01-10T08:29:04.448447 #2143961]  INFO -- : [03410b47-7d77-4d6a-89a9-76c571fba368]   Rendered layout layouts/application.html.erb (Duration: 13.2ms | Allocations: 3916)
+I, [2024-01-10T08:29:04.448958 #2143961]  INFO -- : [03410b47-7d77-4d6a-89a9-76c571fba368] Completed 200 OK in 17ms (Views: 15.9ms | ActiveRecord: 0.0ms | Allocations: 5011)
+I, [2024-01-10T08:29:06.939841 #2143961]  INFO -- : [a6df981c-ba01-4b6f-8fa6-8fe4585d5787] Started GET "/companies" for 94.228.189.238 at 2024-01-10 08:29:06 +0000
+I, [2024-01-10T08:29:06.941421 #2143961]  INFO -- : [a6df981c-ba01-4b6f-8fa6-8fe4585d5787] Processing by CompaniesController#index as HTML
+I, [2024-01-10T08:29:06.946741 #2143961]  INFO -- : [a6df981c-ba01-4b6f-8fa6-8fe4585d5787] Completed 401 Unauthorized in 5ms (ActiveRecord: 0.0ms | Allocations: 507)
+I, [2024-01-10T08:29:06.985492 #2143961]  INFO -- : [704190c3-11cd-4132-b5e0-47298eaaeed3] Started GET "/users/sign_in" for 94.228.189.238 at 2024-01-10 08:29:06 +0000
+I, [2024-01-10T08:29:06.987119 #2143961]  INFO -- : [704190c3-11cd-4132-b5e0-47298eaaeed3] Processing by Devise::SessionsController#new as HTML
+I, [2024-01-10T08:29:07.031227 #2143961]  INFO -- : [704190c3-11cd-4132-b5e0-47298eaaeed3]   Rendered devise/sessions/new.html.erb within layouts/application (Duration: 7.8ms | Allocations: 4505)
+I, [2024-01-10T08:29:07.032291 #2143961]  INFO -- : [704190c3-11cd-4132-b5e0-47298eaaeed3]   Rendered layout layouts/application.html.erb (Duration: 8.9ms | Allocations: 5214)
+I, [2024-01-10T08:29:07.032577 #2143961]  INFO -- : [704190c3-11cd-4132-b5e0-47298eaaeed3] Completed 200 OK in 45ms (Views: 10.7ms | ActiveRecord: 12.7ms | Allocations: 15767)
+I, [2024-01-10T08:29:08.591432 #2143961]  INFO -- : [631a081c-0cce-4267-a94a-426ad698ea4e] Started POST "/users/sign_in" for 94.228.189.238 at 2024-01-10 08:29:08 +0000
+I, [2024-01-10T08:29:08.592370 #2143961]  INFO -- : [631a081c-0cce-4267-a94a-426ad698ea4e] Processing by Devise::SessionsController#create as HTML
+I, [2024-01-10T08:29:08.592448 #2143961]  INFO -- : [631a081c-0cce-4267-a94a-426ad698ea4e]   Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"titi@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"SE CONNECTER"}
+I, [2024-01-10T08:29:08.894363 #2143961]  INFO -- : [631a081c-0cce-4267-a94a-426ad698ea4e] Redirected to https://www.cachetons.com/companies
+I, [2024-01-10T08:29:08.894484 #2143961]  INFO -- : [631a081c-0cce-4267-a94a-426ad698ea4e] Completed 303 See Other in 302ms (ActiveRecord: 0.8ms | Allocations: 2957)
+I, [2024-01-10T08:29:08.956767 #2143961]  INFO -- : [424da73c-dfe4-46d6-a2c8-4110a915e52e] Started GET "/companies" for 94.228.189.238 at 2024-01-10 08:29:08 +0000
+I, [2024-01-10T08:29:08.957437 #2143961]  INFO -- : [424da73c-dfe4-46d6-a2c8-4110a915e52e] Processing by CompaniesController#index as HTML
+I, [2024-01-10T08:29:08.987943 #2143961]  INFO -- : [424da73c-dfe4-46d6-a2c8-4110a915e52e]   Rendered companies/index.html.erb within layouts/application (Duration: 16.2ms | Allocations: 7185)
+I, [2024-01-10T08:29:08.991920 #2143961]  INFO -- : [424da73c-dfe4-46d6-a2c8-4110a915e52e]   Rendered layout layouts/application.html.erb (Duration: 20.2ms | Allocations: 8750)
+I, [2024-01-10T08:29:08.992249 #2143961]  INFO -- : [424da73c-dfe4-46d6-a2c8-4110a915e52e] Completed 200 OK in 35ms (Views: 19.4ms | ActiveRecord: 5.1ms | Allocations: 14798)
+I, [2024-01-10T08:51:52.568866 #2144347]  INFO -- : [0e29769b-8ad4-4acc-a7e1-5d8da6ffcab0] Started GET "/" for 94.228.189.238 at 2024-01-10 08:51:52 +0000
+I, [2024-01-10T08:51:52.571309 #2144347]  INFO -- : [0e29769b-8ad4-4acc-a7e1-5d8da6ffcab0] Processing by HomeController#index as HTML
+I, [2024-01-10T08:51:52.573854 #2144347]  INFO -- : [0e29769b-8ad4-4acc-a7e1-5d8da6ffcab0]   Rendered home/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 392)
+I, [2024-01-10T08:51:52.581173 #2144347]  INFO -- : [0e29769b-8ad4-4acc-a7e1-5d8da6ffcab0]   Rendered layout layouts/application.html.erb (Duration: 8.0ms | Allocations: 3916)
+I, [2024-01-10T08:51:52.581485 #2144347]  INFO -- : [0e29769b-8ad4-4acc-a7e1-5d8da6ffcab0] Completed 200 OK in 10ms (Views: 9.6ms | ActiveRecord: 0.0ms | Allocations: 5011)
+I, [2024-01-10T08:51:55.056955 #2144347]  INFO -- : [df0e2e69-bf5f-43ea-86f3-01f8f15de5d9] Started GET "/companies" for 94.228.189.238 at 2024-01-10 08:51:55 +0000
+I, [2024-01-10T08:51:55.058417 #2144347]  INFO -- : [df0e2e69-bf5f-43ea-86f3-01f8f15de5d9] Processing by CompaniesController#index as HTML
+I, [2024-01-10T08:51:55.063346 #2144347]  INFO -- : [df0e2e69-bf5f-43ea-86f3-01f8f15de5d9] Completed 401 Unauthorized in 5ms (ActiveRecord: 0.0ms | Allocations: 483)
+I, [2024-01-10T08:51:55.102535 #2144347]  INFO -- : [3b57964f-4f84-4b0f-80ad-9b28a3ca0576] Started GET "/users/sign_in" for 94.228.189.238 at 2024-01-10 08:51:55 +0000
+I, [2024-01-10T08:51:55.104146 #2144347]  INFO -- : [3b57964f-4f84-4b0f-80ad-9b28a3ca0576] Processing by Devise::SessionsController#new as HTML
+I, [2024-01-10T08:51:55.154224 #2144347]  INFO -- : [3b57964f-4f84-4b0f-80ad-9b28a3ca0576]   Rendered devise/sessions/new.html.erb within layouts/application (Duration: 8.1ms | Allocations: 4505)
+I, [2024-01-10T08:51:55.155372 #2144347]  INFO -- : [3b57964f-4f84-4b0f-80ad-9b28a3ca0576]   Rendered layout layouts/application.html.erb (Duration: 9.2ms | Allocations: 5214)
+I, [2024-01-10T08:51:55.155641 #2144347]  INFO -- : [3b57964f-4f84-4b0f-80ad-9b28a3ca0576] Completed 200 OK in 51ms (Views: 11.1ms | ActiveRecord: 19.2ms | Allocations: 15779)
+I, [2024-01-10T08:51:56.369618 #2144347]  INFO -- : [be655004-b6e0-4483-8d95-5fd6bd0763e9] Started POST "/users/sign_in" for 94.228.189.238 at 2024-01-10 08:51:56 +0000
+I, [2024-01-10T08:51:56.370814 #2144347]  INFO -- : [be655004-b6e0-4483-8d95-5fd6bd0763e9] Processing by Devise::SessionsController#create as HTML
+I, [2024-01-10T08:51:56.370916 #2144347]  INFO -- : [be655004-b6e0-4483-8d95-5fd6bd0763e9]   Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"titi@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"SE CONNECTER"}
+I, [2024-01-10T08:51:56.658872 #2144347]  INFO -- : [be655004-b6e0-4483-8d95-5fd6bd0763e9] Redirected to https://www.cachetons.com/companies
+I, [2024-01-10T08:51:56.659013 #2144347]  INFO -- : [be655004-b6e0-4483-8d95-5fd6bd0763e9] Completed 303 See Other in 288ms (ActiveRecord: 0.7ms | Allocations: 2967)
+I, [2024-01-10T08:51:56.728524 #2144347]  INFO -- : [d9afbb10-7d87-4289-aebb-66ed3488ee05] Started GET "/companies" for 94.228.189.238 at 2024-01-10 08:51:56 +0000
+I, [2024-01-10T08:51:56.730064 #2144347]  INFO -- : [d9afbb10-7d87-4289-aebb-66ed3488ee05] Processing by CompaniesController#index as HTML
+I, [2024-01-10T08:51:56.774647 #2144347]  INFO -- : [d9afbb10-7d87-4289-aebb-66ed3488ee05]   Rendered companies/index.html.erb within layouts/application (Duration: 19.2ms | Allocations: 7185)
+I, [2024-01-10T08:51:56.778242 #2144347]  INFO -- : [d9afbb10-7d87-4289-aebb-66ed3488ee05]   Rendered layout layouts/application.html.erb (Duration: 22.9ms | Allocations: 8750)
+I, [2024-01-10T08:51:56.778504 #2144347]  INFO -- : [d9afbb10-7d87-4289-aebb-66ed3488ee05] Completed 200 OK in 48ms (Views: 22.4ms | ActiveRecord: 6.4ms | Allocations: 14781)
+I, [2024-01-10T08:51:59.952380 #2144347]  INFO -- : [ffc46511-c618-4292-8821-1eb6eaee26ff] Started GET "/companies/2" for 94.228.189.238 at 2024-01-10 08:51:59 +0000
+I, [2024-01-10T08:51:59.953373 #2144347]  INFO -- : [ffc46511-c618-4292-8821-1eb6eaee26ff] Processing by CompaniesController#show as HTML
+I, [2024-01-10T08:51:59.953468 #2144347]  INFO -- : [ffc46511-c618-4292-8821-1eb6eaee26ff]   Parameters: {"id"=>"2"}
+I, [2024-01-10T08:52:00.126568 #2144347]  INFO -- : [ffc46511-c618-4292-8821-1eb6eaee26ff]   Rendered companies/show.html.erb within layouts/application (Duration: 143.2ms | Allocations: 78740)
+I, [2024-01-10T08:52:00.129029 #2144347]  INFO -- : [ffc46511-c618-4292-8821-1eb6eaee26ff]   Rendered layout layouts/application.html.erb (Duration: 145.7ms | Allocations: 79961)
+I, [2024-01-10T08:52:00.129249 #2144347]  INFO -- : [ffc46511-c618-4292-8821-1eb6eaee26ff] Completed 200 OK in 176ms (Views: 140.5ms | ActiveRecord: 13.6ms | Allocations: 92310)
+I, [2024-01-10T08:52:03.183360 #2144347]  INFO -- : [c0118aef-7fa3-4c8a-a7cf-9354dbb370f7] Started GET "/companies/2/payslips?performance=8" for 94.228.189.238 at 2024-01-10 08:52:03 +0000
+I, [2024-01-10T08:52:03.184510 #2144347]  INFO -- : [c0118aef-7fa3-4c8a-a7cf-9354dbb370f7] Processing by PayslipsController#index as HTML
+I, [2024-01-10T08:52:03.184594 #2144347]  INFO -- : [c0118aef-7fa3-4c8a-a7cf-9354dbb370f7]   Parameters: {"performance"=>"8", "company_id"=>"2"}
+I, [2024-01-10T08:52:03.258956 #2144347]  INFO -- : [c0118aef-7fa3-4c8a-a7cf-9354dbb370f7]   Rendered payslips/index.html.erb within layouts/application (Duration: 39.5ms | Allocations: 9900)
+I, [2024-01-10T08:52:03.261048 #2144347]  INFO -- : [c0118aef-7fa3-4c8a-a7cf-9354dbb370f7]   Rendered layout layouts/application.html.erb (Duration: 41.7ms | Allocations: 10989)
+I, [2024-01-10T08:52:03.261332 #2144347]  INFO -- : [c0118aef-7fa3-4c8a-a7cf-9354dbb370f7] Completed 200 OK in 77ms (Views: 36.7ms | ActiveRecord: 8.6ms | Allocations: 27603)
+I, [2024-01-10T08:52:05.088335 #2144347]  INFO -- : [ce30c4ac-e4e8-4efa-a9a4-f93ae1c858f0] Started GET "/companies/2/payslips/2" for 94.228.189.238 at 2024-01-10 08:52:05 +0000
+I, [2024-01-10T08:52:05.089194 #2144347]  INFO -- : [ce30c4ac-e4e8-4efa-a9a4-f93ae1c858f0] Processing by PayslipsController#show as HTML
+I, [2024-01-10T08:52:05.089237 #2144347]  INFO -- : [ce30c4ac-e4e8-4efa-a9a4-f93ae1c858f0]   Parameters: {"company_id"=>"2", "id"=>"2"}
+I, [2024-01-10T08:52:05.117884 #2144347]  INFO -- : [ce30c4ac-e4e8-4efa-a9a4-f93ae1c858f0]   Rendered payslips/show.html.erb within layouts/application (Duration: 24.0ms | Allocations: 4380)
+I, [2024-01-10T08:52:05.119968 #2144347]  INFO -- : [ce30c4ac-e4e8-4efa-a9a4-f93ae1c858f0]   Rendered layout layouts/application.html.erb (Duration: 26.1ms | Allocations: 5350)
+I, [2024-01-10T08:52:05.120202 #2144347]  INFO -- : [ce30c4ac-e4e8-4efa-a9a4-f93ae1c858f0] Completed 200 OK in 31ms (Views: 15.3ms | ActiveRecord: 12.2ms | Allocations: 6375)
+I, [2024-01-10T08:52:12.301124 #2144347]  INFO -- : [1e251585-ddfd-43d9-a1ac-7a149bf3bd33] Started DELETE "/companies/2/payslips/2" for 94.228.189.238 at 2024-01-10 08:52:12 +0000
+I, [2024-01-10T08:52:12.301792 #2144347]  INFO -- : [1e251585-ddfd-43d9-a1ac-7a149bf3bd33] Processing by PayslipsController#destroy as TURBO_STREAM
+I, [2024-01-10T08:52:12.301837 #2144347]  INFO -- : [1e251585-ddfd-43d9-a1ac-7a149bf3bd33]   Parameters: {"company_id"=>"2", "id"=>"2"}
+I, [2024-01-10T08:52:12.318571 #2144347]  INFO -- : [1e251585-ddfd-43d9-a1ac-7a149bf3bd33] Redirected to https://www.cachetons.com/companies/2/payslips
+I, [2024-01-10T08:52:12.318702 #2144347]  INFO -- : [1e251585-ddfd-43d9-a1ac-7a149bf3bd33] Completed 302 Found in 17ms (ActiveRecord: 11.3ms | Allocations: 1773)
+I, [2024-01-10T08:52:12.348193 #2144347]  INFO -- : [d39cdf45-6533-4be9-9862-16a208835adf] Started GET "/companies/2/payslips" for 94.228.189.238 at 2024-01-10 08:52:12 +0000
+I, [2024-01-10T08:52:12.349090 #2144347]  INFO -- : [d39cdf45-6533-4be9-9862-16a208835adf] Processing by PayslipsController#index as TURBO_STREAM
+I, [2024-01-10T08:52:12.349135 #2144347]  INFO -- : [d39cdf45-6533-4be9-9862-16a208835adf]   Parameters: {"company_id"=>"2"}
+I, [2024-01-10T08:52:12.365600 #2144347]  INFO -- : [d39cdf45-6533-4be9-9862-16a208835adf]   Rendered payslips/index.html.erb within layouts/application (Duration: 13.4ms | Allocations: 2981)
+I, [2024-01-10T08:52:12.368320 #2144347]  INFO -- : [d39cdf45-6533-4be9-9862-16a208835adf]   Rendered layout layouts/application.html.erb (Duration: 16.2ms | Allocations: 3960)
+I, [2024-01-10T08:52:12.368640 #2144347]  INFO -- : [d39cdf45-6533-4be9-9862-16a208835adf] Completed 200 OK in 19ms (Views: 14.2ms | ActiveRecord: 3.2ms | Allocations: 4832)
+I, [2024-01-10T09:17:33.835033 #2144347]  INFO -- : [ba3aee17-be90-4ab6-b385-874ad887aa5e] Started GET "/" for 167.99.212.84 at 2024-01-10 09:17:33 +0000
+I, [2024-01-10T09:17:33.836252 #2144347]  INFO -- : [ba3aee17-be90-4ab6-b385-874ad887aa5e] Processing by HomeController#index as */*
+I, [2024-01-10T09:17:33.837494 #2144347]  INFO -- : [ba3aee17-be90-4ab6-b385-874ad887aa5e]   Rendered home/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 41)
+I, [2024-01-10T09:17:33.839474 #2144347]  INFO -- : [ba3aee17-be90-4ab6-b385-874ad887aa5e]   Rendered layout layouts/application.html.erb (Duration: 2.3ms | Allocations: 714)
+I, [2024-01-10T09:17:33.839796 #2144347]  INFO -- : [ba3aee17-be90-4ab6-b385-874ad887aa5e] Completed 200 OK in 3ms (Views: 2.9ms | ActiveRecord: 0.0ms | Allocations: 927)
+I, [2024-01-10T09:20:07.751911 #2144347]  INFO -- : [e2f1d585-bb98-4006-9020-8f6c33dcfee9] Started GET "/" for 94.228.189.238 at 2024-01-10 09:20:07 +0000
+I, [2024-01-10T09:20:07.752560 #2144347]  INFO -- : [e2f1d585-bb98-4006-9020-8f6c33dcfee9] Processing by HomeController#index as HTML
+I, [2024-01-10T09:20:07.753331 #2144347]  INFO -- : [e2f1d585-bb98-4006-9020-8f6c33dcfee9]   Rendered home/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 36)
+I, [2024-01-10T09:20:07.754672 #2144347]  INFO -- : [e2f1d585-bb98-4006-9020-8f6c33dcfee9]   Rendered layout layouts/application.html.erb (Duration: 1.5ms | Allocations: 704)
+I, [2024-01-10T09:20:07.754920 #2144347]  INFO -- : [e2f1d585-bb98-4006-9020-8f6c33dcfee9] Completed 200 OK in 2ms (Views: 2.0ms | ActiveRecord: 0.0ms | Allocations: 910)
