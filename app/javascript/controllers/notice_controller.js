@@ -9,7 +9,6 @@ export default class extends Controller {
 
   close() {
     this.closeNoticeButtonTarget.remove();
-    const blackout = document.getElementById("blackout");
-    blackout.remove();
+    document.querySelector(".blackout").remove();
   }
 }
