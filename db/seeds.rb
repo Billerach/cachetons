@@ -30,8 +30,8 @@ User.destroy_all
 
 puts "Creatings USERS"
 
-user1 = User.create!(email: "toto@gmail.com", password: "azerty")
-user2 = User.create!(email: "titi@gmail.com", password: "azerty")
+user1 = User.create!(email: "toto@gmail.com", password: "s¤õNðâfÏLúQÒDew¦C¨ÕaúbS¼r±Nû²»²¦")
+user2 = User.create!(email: "titi@gmail.com", password: "s¤õNðâfÏLúQÒDew¦C¨ÕaúbS¼r±Nû²»²¦")
 
 puts "Users created"
 

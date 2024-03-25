@@ -1,8 +1,9 @@
 <% if notice %>
-  <div class="notice" role="notification utilisateur" data-controller="notice">
-    <%= notice %>
-    <button type="button">
-    </button>
+  <div data-controller="notice" >
+    <div class="notice" role="notification utilisateur" data-action="click->notice#close" data-notice-target="closeNoticeButton">
+      <%= notice %>
+    </div>
+    <div class="blackout"></div>
   </div>
 <% end %>
 <% if alert %>

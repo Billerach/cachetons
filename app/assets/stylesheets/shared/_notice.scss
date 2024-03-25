@@ -1,3 +1,14 @@
 .notice{
-  color: rgb(187, 170, 14);
+  z-index: 2;
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  background-color: #fafafa;
+  border: 1px solid #c8c8c8;
+  padding: 20px;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #2ea39d;
+  text-transform: uppercase;
+  cursor:pointer;
 }
