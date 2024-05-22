@@ -50,75 +50,73 @@
         </p>
     </div>
   </div>
-  <div class="payslips_show_table">
-    <table>
-      <tbody>
-        <tr>
-          <td rowspan="3" colspan="2">
+  <table class="payslips_show_table">
+    <tbody>
+      <tr>
+        <td rowspan="3" colspan="2">
+          <p>
+            Nombre de jours travaillés :
+            <strong>
+              <%= (@payslip.contract_end - @payslip.contract_start).to_i + 1 if @payslip.contract_end? %>
+            </strong>
+          </p>
+          <% if @payslip.artist? %>
             <p>
-              Nombre de jours travaillés :
-              <strong>
-                <%= (@payslip.contract_end - @payslip.contract_start).to_i + 1 if @payslip.contract_end? %>
-              </strong>
+              Combien de services de répétition ? : <%= @payslip.number_of_rehearsal %><br />
+              Combien de représentations ? : <%= @payslip.number_of_performance %><br />
             </p>
-            <% if @payslip.artist? %>
-              <p>
-                Combien de services de répétition ? : <%= @payslip.number_of_rehearsal %><br />
-                Combien de représentations ? : <%= @payslip.number_of_performance %><br />
-              </p>
+          <% else %>
+            <p>
+              Nombre d'heures par jour : <%= @payslip.hours_per_day %><br />
+              Nombre d'heures total : <%= @payslip.number_of_hours %><br />
+            </p>
+          <% end %>
+        </td>
+        <td>Base</td>
+        <td colspan="4"></td>
+      </tr>
+      <tr>
+        <td><strong><%= sprintf("%.2f", @payslip.basis) if @payslip.basis.present? %></strong></td>
+        <td colspan="2">Part salariale</td>
+        <td colspan="2">Part patronale</td>
+        </tr>
+      <tr>
+        <td></td>
+        <td>Taux</td>
+        <td>Montant</td>
+        <td>Taux</td>
+        <td>Montant</td>
+      </tr>
+      <% @payslip.contributions.each do |contribution| %>
+        <tr>
+          <td><%= contribution.fund %></td>
+          <td><%= contribution.name %></td>
+          <td><%= sprintf("%.2f", @payslip.basis)%></td>
+          <% if contribution.employee_part != 0 %>
+            <td><%= (contribution.employee_part*100).round(2) %>%</td>
+            <td><%= sprintf("%.2f",(contribution.employee_part*@payslip.basis).floor(2)) %></td>
             <% else %>
-              <p>
-                Nombre d'heures par jour : <%= @payslip.hours_per_day %><br />
-                Nombre d'heures total : <%= @payslip.number_of_hours %><br />
-              </p>
-            <% end %>
-          </td>
-          <td>Base</td>
-          <td colspan="4"></td>
+            <td></td>
+            <td></td>
+          <% end %>
+          <% if contribution.employer_part != 0 %>
+            <td><%= (contribution.employer_part*100).round(2) %>%</td>
+            <td><%= (contribution.employer_part*@payslip.basis).floor(2) %></td>
+            <% else %>
+            <td></td>
+            <td></td>
+          <% end %>
         </tr>
-        <tr>
-          <td><strong><%= sprintf("%.2f", @payslip.basis) if @payslip.basis.present? %></strong></td>
-          <td colspan="2">Part salariale</td>
-          <td colspan="2">Part patronale</td>
-         </tr>
-        <tr>
-          <td></td>
-          <td>Taux</td>
-          <td>Montant</td>
-          <td>Taux</td>
-          <td>Montant</td>
-        </tr>
-        <% @payslip.contributions.each do |contribution| %>
-          <tr>
-            <td><%= contribution.fund %></td>
-            <td><%= contribution.name %></td>
-            <td><%= sprintf("%.2f", @payslip.basis)%></td>
-            <% if contribution.employee_part != 0 %>
-              <td><%= (contribution.employee_part*100).round(2) %>%</td>
-              <td><%= sprintf("%.2f",(contribution.employee_part*@payslip.basis).floor(2)) %></td>
-              <% else %>
-              <td></td>
-              <td></td>
-            <% end %>
-            <% if contribution.employer_part != 0 %>
-              <td><%= (contribution.employer_part*100).round(2) %>%</td>
-              <td><%= (contribution.employer_part*@payslip.basis).floor(2) %></td>
-              <% else %>
-              <td></td>
-              <td></td>
-            <% end %>
-          </tr>
-        <% end %>
-        <tr>
-          <td></td>
-          <td></td>
-          <td>Totaux</td>
-          <td></td>
-          <td><strong><%= sprintf("%.2f",(@payslip.employee_s_contribution).floor(2)) %></strong></td>
-          <td></td>
-          <td><strong><%= sprintf("%.2f",(@payslip.employer_s_contribution).floor(2)) %></strong></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+      <% end %>
+      <tr>
+        <td></td>
+        <td></td>
+        <td>Totaux</td>
+        <td></td>
+        <td><strong><%= sprintf("%.2f",(@payslip.employee_s_contribution).floor(2)) %></strong></td>
+        <td></td>
+        <td><strong><%= sprintf("%.2f",(@payslip.employer_s_contribution).floor(2)) %></strong></td>
+      </tr>
+    </tbody>
+  </table>
 </div>

@@ -1,21 +1,21 @@
 <div id="job_profiles_index_container">
-  <div id="job_profiles_list">
-    <% if @job_profiles.present? %>
-      <%= "Vos modèles :" %>
-        <ul>
-          <% @job_profiles.each do |job_profile| %>
-            <li>
-              <%= link_to job_profile_url(job_profile.id), class: "payslip_card" do %>
-                <%= "#{job_profile.name} ( #{job_profile.artist? ? "artiste" : "non-artiste"} #{job_profile.executive? ? "cadre" : "non-cadre"} )"%>
-              <% end %>
-            </li>
+  <% if @job_profiles.present? %>
+    <h2>
+      Vos modèles (IDCC 1285 : CCN Entreprises artistiques et culturelles)
+    </h2>
+    <ul>
+      <% @job_profiles.each do |job_profile| %>
+        <li>
+          <%= link_to job_profile_url(job_profile.id), class: "job_profile_card" do %>
+            <%= "#{job_profile.name} ( #{job_profile.artist? ? "artiste" : "non-artiste"} #{job_profile.executive? ? "cadre" : "non-cadre"} )"%>
           <% end %>
-        </ul>
-    <% else %>
-      <%= "pas de modèle enregistré" %>
-    <% end %>
-  </div>
-  <div>
-    <%= link_to "Nouveau modèle de fiche de paie", new_job_profile_url %>
-  </div>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <%= "pas de modèle enregistré" %>
+  <% end %>
+</div>
+<div id="new_job_profile_button" >
+  <%= link_to "Nouveau modèle de fiche de paie", new_job_profile_url %>
 </div>

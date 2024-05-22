@@ -84,6 +84,10 @@
   color:rgb(46, 163, 157);
 }
 
+.payslips_show_table{
+  border-collapse : collapse;
+}
+
 .payslips_show_table td, .payslips_edit_table td{
   border : 1px solid black;
 }
