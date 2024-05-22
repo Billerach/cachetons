@@ -2,12 +2,13 @@
 @import "font-awesome";
 
 //Application SCSS
-@import "payslips/index";
-@import "payslips/show";
-@import "home/index";
 @import "companies/index";
 @import "companies/show";
 @import "devise/sessions/new";
+@import "home/index";
+@import "job_profiles/index";
+@import "payslips/index";
+@import "payslips/show";
 @import "shared/navbar";
 @import "shared/notice";
 @import "variables";

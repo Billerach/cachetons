@@ -7,7 +7,7 @@ class CompaniesController < ApplicationController
   def create
     @company = Company.new(company_params)
     if @company.save
-      @company_link = CompanyLink.new(user_id: current_user.id, company_id: @company.id)
+      @company_link = CompanyLink.new(user: current_user, company: @company)
       @company_link.save
       redirect_to companies_path, notice: "Structure ajoutée"
     else

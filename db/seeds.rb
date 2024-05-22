@@ -30,8 +30,8 @@ User.destroy_all
 
 puts "Creatings USERS"
 
-user1 = User.create!(email: "toto@gmail.com", password: "s¤õNðâfÏLúQÒDew¦C¨ÕaúbS¼r±Nû²»²¦")
-user2 = User.create!(email: "titi@gmail.com", password: "s¤õNðâfÏLúQÒDew¦C¨ÕaúbS¼r±Nû²»²¦")
+user1 = User.create!(email: "demo@cachetons.com", password: "s¤õNðâfÏLúQÒDew¦C¨ÕaúbS¼r±Nû²»²¦")
+user2 = User.create!(email: "titi@gmail.com", password: "YDs!cWhJ9YEV*RC9h44n")
 
 puts "Users created"
 
@@ -57,11 +57,8 @@ nul_part_ici        = Performance.create!(company_id: company2.id, name: "Nulle 
 la_Déglingue        = Performance.create!(company_id: company2.id, name: "La Déglingue"                   , num_objet: "321Z68686635")
 duvel_et_des_pelles = Performance.create!(company_id: company2.id, name: "Duvel et des pelles"            , num_objet: "654Z68686477")
 paroles             = Performance.create!(company_id: company2.id, name: "Paroles !"                      , num_objet: "987Z68686111")
-maman               = Performance.create!(company_id: company2.id, name: "Maman j'ai chié dans la colle"  , num_objet: "369Z68686369")
-coucou              = Performance.create!(company_id: company2.id, name: "Coucou ! Tu veux voir maman ?"  , num_objet: "258Z68686258")
 mais_oui_mais_non   = Performance.create!(company_id: company3.id, name: "Mais oui mais non"              , num_objet: "741Z68686147")
 sans_dec            = Performance.create!(company_id: company3.id, name: "Sans dec'"                      , num_objet: "159Z68686789")
-genou               = Performance.create!(company_id: company3.id, name: "Parle à mon genou"              , num_objet: "753Z67686645")
 barzingue           = Performance.create!(company_id: company3.id, name: "Le Grand Barzingue"             , num_objet: "296Z68686456")
 
 puts "Performances created"
