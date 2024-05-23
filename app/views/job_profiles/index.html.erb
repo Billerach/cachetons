@@ -1,8 +1,14 @@
 <div id="job_profiles_index_container">
+  <div id="job_profiles_index_header" >
+    <div id="job_profiles_index_header_titles">
+      <h2>Vos modèles</h2>
+      <h3>(IDCC 1285 : CCN Entreprises artistiques et culturelles)</h3>
+    </div>
+    <div id="new_job_profile_link">
+      <%= link_to "+", new_job_profile_url %>
+    </div>
+  </div>
   <% if @job_profiles.present? %>
-    <h2>
-      Vos modèles (IDCC 1285 : CCN Entreprises artistiques et culturelles)
-    </h2>
     <ul>
       <% @job_profiles.each do |job_profile| %>
         <li>
@@ -13,9 +19,6 @@
       <% end %>
     </ul>
   <% else %>
-    <%= "pas de modèle enregistré" %>
+    <strong class="there_is_noting_message">Pas de modèle enregistré.</strong>
   <% end %>
-</div>
-<div id="new_job_profile_button" >
-  <%= link_to "Nouveau modèle de fiche de paie", new_job_profile_url %>
 </div>

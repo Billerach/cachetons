@@ -1,13 +1,55 @@
 @import "../variables";
 
 #job_profiles_index_container{
+  padding: 40px;
+  width:100%;
 
   ul{
     list-style-type: none;
+    padding:0;
   }
 
   li{
     margin-top: 20px;
+  }
+}
+
+#job_profiles_index_header{
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+
+  h2, h3{
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    line-height: 40px;
+  }
+}
+
+#job_profiles_index_header_titles{
+  margin:0 auto;
+}
+
+#new_job_profile_link{
+
+  a{
+    display: block;
+    background-color: $bleuvert;
+    width: 50px;
+    height:50px;
+    margin:25px;
+    border-radius: 50%;
+    color: white;
+    text-decoration: none;
+    font: 4rem $secondary_font;
+    text-align:center;
+    line-height: 45px;
+    transition: all 0.2s;
+  }
+
+  a:hover{
+    background-color: $light-bleuvert;
   }
 }
 

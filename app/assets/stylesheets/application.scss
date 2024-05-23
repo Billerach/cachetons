@@ -7,6 +7,7 @@
 @import "devise/sessions/new";
 @import "home/index";
 @import "job_profiles/index";
+@import "job_profiles/new";
 @import "payslips/index";
 @import "payslips/show";
 @import "shared/navbar";
@@ -30,4 +31,11 @@ body{
 
 h2{
   font: 2rem $primary_font;
+}
+
+.there_is_noting_message{
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  line-height: 40px;
 }
