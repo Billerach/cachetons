@@ -6,5 +6,5 @@ class User < ApplicationRecord
 
   has_many :company_links
   has_many :companies, through: :company_links
-  has_many :job_profile
+  has_many :job_profiles
 end

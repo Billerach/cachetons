@@ -1,6 +1,6 @@
 class Contribution < ApplicationRecord
-  has_many :contributions_links, dependent: :destroy
-  has_many :payslips, through: :contributions_links
+  has_many :contributions_links
+  has_many :job_profiles, through: :contributions_links
 
   validates :fund,          presence: true
   validates :name,          presence: true

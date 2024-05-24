@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_13_200741) do
+ActiveRecord::Schema[7.0].define(version: 2024_05_24_131135) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -47,11 +47,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_13_200741) do
 
   create_table "contributions_links", force: :cascade do |t|
     t.bigint "contribution_id"
-    t.bigint "payslip_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "job_profiles_id"
     t.index ["contribution_id"], name: "index_contributions_links_on_contribution_id"
-    t.index ["payslip_id"], name: "index_contributions_links_on_payslip_id"
+    t.index ["job_profiles_id"], name: "index_contributions_links_on_job_profiles_id"
   end
 
   create_table "employees", force: :cascade do |t|
@@ -74,9 +74,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_13_200741) do
 
   create_table "job_profiles", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.string "contributions_list"
     t.string "name"
-    t.string "string"
     t.boolean "executive", default: false, null: false
     t.boolean "artist", default: false, null: false
     t.datetime "created_at", null: false
@@ -90,7 +88,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_13_200741) do
     t.date "contract_end"
     t.date "payment_date"
     t.string "payment_id"
-    t.string "job_profile"
     t.integer "hours_per_day"
     t.integer "number_of_days"
     t.boolean "executive"
@@ -119,8 +116,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_13_200741) do
     t.bigint "company_id"
     t.bigint "employee_id"
     t.bigint "performance_id"
+    t.bigint "job_profile_id"
     t.index ["company_id"], name: "index_payslips_on_company_id"
     t.index ["employee_id"], name: "index_payslips_on_employee_id"
+    t.index ["job_profile_id"], name: "index_payslips_on_job_profile_id"
     t.index ["performance_id"], name: "index_payslips_on_performance_id"
   end
 
@@ -148,11 +147,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_13_200741) do
   add_foreign_key "company_links", "companies"
   add_foreign_key "company_links", "users"
   add_foreign_key "contributions_links", "contributions"
-  add_foreign_key "contributions_links", "payslips"
+  add_foreign_key "contributions_links", "job_profiles", column: "job_profiles_id"
   add_foreign_key "employees", "companies"
   add_foreign_key "job_profiles", "users"
   add_foreign_key "payslips", "companies"
   add_foreign_key "payslips", "employees"
+  add_foreign_key "payslips", "job_profiles"
   add_foreign_key "payslips", "performances"
   add_foreign_key "performances", "companies"
 end
