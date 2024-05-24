@@ -1,6 +1,6 @@
 class JobProfilesController < ApplicationController
   def index
-    @job_profiles = current_user.job_profile
+    @job_profiles = current_user.job_profiles
   end
 
   def show
