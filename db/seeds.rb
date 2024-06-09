@@ -180,6 +180,18 @@ end
 puts "JOB PROFILES created"
 
 
+puts "creating CONTRIBUTION_LINKS"
+
+all_job_profiles = JobProfile.all
+all_job_profiles.each do |job_profile|
+  [c01, c03, c05, c07, c09, c11, c13, c15, c17, c19, c21, c23, c25, c27, c29, c31, c33].each do |contribution|
+    ContributionsLink.create!(job_profile: , contribution:)
+  end
+end
+
+puts "CONTRIBUTION_LINKS created"
+
+
 puts "creating PAYSLIPS"
 
 Payslip.create!(payslip_number: 1, employee_id: jean_mich.id, company_id: company1.id, contract_start: "2018-01-12", contract_end: "2018-01-13", payment_date: "2018-01-17", performance_id: to_be.id,             job_profile_id: jp_artiste_nc_4.id, hours_per_day: 8, executive: false, allowance: 1, basis: 212.00, basis_per_day: 106.00, allowance_basis: 212.00, number_of_hours: 16, employer_s_contribution: 115.09, employee_s_contribution: 52.77, net_salary: 159.23, taxable_net: 165.30, urssaf_limit: 400.00, employer_cost: 286.68, number_of_performance: 0, number_of_rehearsal: 0, gross_salary_accumulation: 138, taxable_net_accumulation: 109.93, net_accumulation: 105.98, urssaf_limit_accumulation: 288.00, employer_cost_accumulation: 214.20, hours_accumulation: 12, artist: false)

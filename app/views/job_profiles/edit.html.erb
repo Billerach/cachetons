@@ -11,11 +11,7 @@
     <%= f.label :contributions %> : <br />
     <% @contributions.each do |contribution| %>
       <label>
-          <% if (@previous_contributions.include?(contribution.id)) %>
-            <%= check_box_tag "job_profile[contributions_list][]", contribution.id, true %>
-          <% else %>
-            <%= check_box_tag "job_profile[contributions_list][]", contribution.id %>
-          <% end %>
+        <%= check_box_tag "job_profile[contributions_list][]", contribution.id, @job_profile.contributions.include?(contribution)%>
         <%= contribution.name %>
       </label>
       <br>

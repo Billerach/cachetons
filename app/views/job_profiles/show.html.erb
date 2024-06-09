@@ -10,7 +10,7 @@
   </h3>
   <h4>Cotisations associées à ce modèle :</h4>
     <ul>
-      <% @contributions.each do |contribution| %>
+      <% @job_profile.contributions.each do |contribution| %>
         <li>
           <%= contribution.fund %> :
           <strong><%= contribution.name %></strong>

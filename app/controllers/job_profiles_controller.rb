@@ -5,10 +5,6 @@ class JobProfilesController < ApplicationController
 
   def show
     @job_profile = JobProfile.find(params[:id])
-    @contributions = []
-    JSON.parse(@job_profile.contributions_list).each do |contribution|
-      @contributions << Contribution.find(contribution)
-    end
   end
 
   def new
@@ -38,7 +34,6 @@ class JobProfilesController < ApplicationController
 
   def edit
     @job_profile = JobProfile.find(params[:id])
-    @previous_contributions = JSON.parse(@job_profile[:contributions_list])
     new
   end
 
@@ -47,6 +42,11 @@ class JobProfilesController < ApplicationController
     job_profile_params[:artist] == "1" ? @job_profile.artist = true : @job_profile.artist = false
     job_profile_params[:executive] == "1" ? @job_profile.executive = true : @job_profile.executive = false
     new_contributions = job_profile_params[:contributions_list].map(&:to_i)
+    new_contributions.each do |new_contribution|
+      # TODO : supprimer les ContributionLinks de CE JobProfile qui existent déjà
+      # TODO : Les recréer à partir new_contributions
+    end
+    raise
     redirect_to @job_profile, notice: "Le modèle à été mis à jour." if @job_profile.update(contributions_list: new_contributions)
   end
 
