@@ -9,17 +9,21 @@
     </small>
   </h3>
   <h4>Cotisations associées à ce modèle :</h4>
-    <ul>
-      <% @job_profile.contributions.each do |contribution| %>
-        <li>
-          <%= contribution.fund %> :
-          <strong><%= contribution.name %></strong>
-          Part salariale : <strong><%= sprintf("%.2f", (contribution.employee_part*100)) %></strong> % ,
-          Part patronale : <strong><%= sprintf("%.2f", (contribution.employer_part*100)) %></strong> % .
-          Du <%= contribution.start_date %> au <%= contribution.end_date %>
-        </li>
-      <% end %>
-    </ul>
+    <% if @job_profile.contributions.empty? %>
+      <p>Aucune cotisation n'est rattachée à ce modèle.</p>
+    <% else %>
+      <ul>
+        <% @job_profile.contributions.each do |contribution| %>
+          <li>
+            <%= contribution.fund %> :
+            <strong><%= contribution.name %></strong>
+            Part salariale : <strong><%= sprintf("%.2f", (contribution.employee_part*100)) %></strong> % ,
+            Part patronale : <strong><%= sprintf("%.2f", (contribution.employer_part*100)) %></strong> % .
+            Du <%= contribution.start_date %> au <%= contribution.end_date %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
   <%= link_to "Modifier le modèle", edit_job_profile_path(@job_profile) %>
   <%= link_to "Supprimer", job_profile_path(@job_profile), data: { turbo_method: :delete, turbo_confirm: "Êtes-vous sûr de vouloir supprimer ce modèle ?" } %>
 

@@ -28,7 +28,7 @@ class JobProfilesController < ApplicationController
   def destroy
     @job_profile = JobProfile.find(params[:id])
     @job_profile.destroy
-    notice = "#{@job_profile.name} a été supprimé définitivement."
+    notice = "Le modèle #{@job_profile.name} a été supprimé définitivement."
     redirect_to job_profiles_path, notice: notice
   end
 
@@ -41,13 +41,13 @@ class JobProfilesController < ApplicationController
     @job_profile = JobProfile.find(params[:id])
     job_profile_params[:artist] == "1" ? @job_profile.artist = true : @job_profile.artist = false
     job_profile_params[:executive] == "1" ? @job_profile.executive = true : @job_profile.executive = false
-    new_contributions = job_profile_params[:contributions_list].map(&:to_i)
-    new_contributions.each do |new_contribution|
-      # TODO : supprimer les ContributionLinks de CE JobProfile qui existent déjà
-      # TODO : Les recréer à partir new_contributions
+    @job_profile.contributions_links.destroy_all
+    new_contributions_ids = job_profile_params[:contributions_list].map(&:to_i)
+    new_contributions_ids.each do |new_contribution_id|
+      new_contribution = Contribution.find(new_contribution_id)
+      ContributionsLink.create!(job_profile: @job_profile, contribution: new_contribution)
     end
-    raise
-    redirect_to @job_profile, notice: "Le modèle à été mis à jour." if @job_profile.update(contributions_list: new_contributions)
+    redirect_to @job_profile, notice: "Le modèle à été mis à jour." if @job_profile.save
   end
 
   private
