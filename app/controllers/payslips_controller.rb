@@ -13,18 +13,11 @@ class PayslipsController < ApplicationController
   def create
     @payslip = Payslip.new
     @company = Company.find(params[:company_id].to_i)
-    @employee = Employee.find(payslip_params[:employee_id].to_i)
-    @performance = Performance.find(payslip_params[:performance_id].to_i)
-    @payslip.company = @company
-    @payslip.employee = @employee
-    @payslip.performance = @performance
-    @payslip.job_profile = payslip_params[:job_profile]
-    @payslip.contract_start = payslip_params[:contract_start]
-    @payslip.payslip_number = payslip_number_generator(@payslip.employee)
+    payslip_creation
     if @payslip.save
       redirect_to edit_company_payslip_url(@company, @payslip)
     else
-      redirect_to company_payslips_url, alert: "Impossible de créer la fiche de paie. Contactez le support."
+      redirect_to company_payslips_url, alert: 'Impossible de créer la fiche de paie. Contactez le support.'
     end
   end
 
@@ -49,6 +42,30 @@ class PayslipsController < ApplicationController
 
   private
 
+  def payslip_params
+    params.require(:payslip).permit(:employee_id, :performance_id, :contract_start, :job_profile)
+  end
+
+  def payslip_creation
+    payslip_params_hydratation
+    @payslip.company = @company
+    @payslip.employee = @employee
+    @payslip.performance = @performance
+    @payslip.contract_start = payslip_params[:contract_start]
+    @payslip.payslip_number = payslip_number_generator(@payslip.employee)
+  end
+
+  def payslip_params_hydratation
+    @employee = Employee.find(payslip_params[:employee_id])
+    @performance = Performance.find(payslip_params[:performance_id])
+    @job_profile = JobProfile.find(payslip_params[:job_profile])
+    contributions_load
+  end
+
+  def contributions_load
+    #TODO
+  end
+
   def payslip_number_generator(employee)
     test = Payslip.where(employee: employee.id).order(payslip_number: :desc).limit(1)[0]
     if test.nil?
@@ -66,10 +83,6 @@ class PayslipsController < ApplicationController
     end
 
     Payslip.where(request)
-  end
-
-  def payslip_params
-    params.require(:payslip).permit(:employee_id, :performance_id, :contract_start, :job_profile)
   end
 
   def payslip_update_params

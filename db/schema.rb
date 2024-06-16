@@ -117,10 +117,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_24_121717) do
     t.bigint "company_id"
     t.bigint "employee_id"
     t.bigint "performance_id"
-    t.bigint "job_profile_id"
     t.index ["company_id"], name: "index_payslips_on_company_id"
     t.index ["employee_id"], name: "index_payslips_on_employee_id"
-    t.index ["job_profile_id"], name: "index_payslips_on_job_profile_id"
     t.index ["performance_id"], name: "index_payslips_on_performance_id"
   end
 
@@ -153,7 +151,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_24_121717) do
   add_foreign_key "job_profiles", "users"
   add_foreign_key "payslips", "companies"
   add_foreign_key "payslips", "employees"
-  add_foreign_key "payslips", "job_profiles"
   add_foreign_key "payslips", "performances"
   add_foreign_key "performances", "companies"
 end

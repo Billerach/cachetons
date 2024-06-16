@@ -6,7 +6,7 @@
     <%= form.label :employee_id, "Nouvelle fiche de paie pour :" %>
     <%= form.collection_select :employee_id, @company.employees.distinct, :id, :lastname_with_firstname %>
     <%= form.label :employee_id, ", en tant que :" %>
-    <%= form.collection_select :job_profile, current_user.job_profile, :id, :name %>
+    <%= form.collection_select :job_profile, current_user.job_profiles, :id, :name %>
     <%= form.label :employee_id, ", concernant le spectacle :" %>
     <%= form.collection_select :performance_id, @company.performances, :id, :name %>
     <%= form.label :contract_start, "embauche prévue le :" %>
