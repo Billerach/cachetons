@@ -1,6 +1,6 @@
 require "test_helper"
 
-class ContributionsLinkTest < ActiveSupport::TestCase
+class PayslipsToContributionsLinkTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

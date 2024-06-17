@@ -63,7 +63,9 @@ class PayslipsController < ApplicationController
   end
 
   def contributions_load
-    #TODO
+    @job_profile.contributions.each do |contribution|
+      raise
+    end
   end
 
   def payslip_number_generator(employee)

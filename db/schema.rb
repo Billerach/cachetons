@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_05_24_121717) do
+ActiveRecord::Schema[7.0].define(version: 2024_06_17_153201) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -26,8 +26,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_24_121717) do
   end
 
   create_table "company_links", force: :cascade do |t|
-    t.bigint "company_id"
     t.bigint "user_id"
+    t.bigint "company_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["company_id"], name: "index_company_links_on_company_id"
@@ -43,15 +43,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_24_121717) do
     t.date "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "contributions_links", force: :cascade do |t|
-    t.bigint "contribution_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "job_profile_id"
-    t.index ["contribution_id"], name: "index_contributions_links_on_contribution_id"
-    t.index ["job_profile_id"], name: "index_contributions_links_on_job_profile_id"
   end
 
   create_table "employees", force: :cascade do |t|
@@ -83,12 +74,22 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_24_121717) do
     t.index ["user_id"], name: "index_job_profiles_on_user_id"
   end
 
+  create_table "job_profiles_to_contributions_links", force: :cascade do |t|
+    t.bigint "job_profile_id"
+    t.bigint "contribution_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["contribution_id"], name: "index_job_profiles_to_contributions_links_on_contribution_id"
+    t.index ["job_profile_id"], name: "index_job_profiles_to_contributions_links_on_job_profile_id"
+  end
+
   create_table "payslips", force: :cascade do |t|
     t.integer "payslip_number"
     t.date "contract_start"
     t.date "contract_end"
     t.date "payment_date"
     t.string "payment_id"
+    t.string "job_profile"
     t.integer "hours_per_day"
     t.integer "number_of_days"
     t.boolean "executive"
@@ -122,6 +123,15 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_24_121717) do
     t.index ["performance_id"], name: "index_payslips_on_performance_id"
   end
 
+  create_table "payslips_to_contributions_links", force: :cascade do |t|
+    t.bigint "payslip_id"
+    t.bigint "contribution_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["contribution_id"], name: "index_payslips_to_contributions_links_on_contribution_id"
+    t.index ["payslip_id"], name: "index_payslips_to_contributions_links_on_payslip_id"
+  end
+
   create_table "performances", force: :cascade do |t|
     t.bigint "company_id"
     t.string "name"
@@ -145,12 +155,14 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_24_121717) do
 
   add_foreign_key "company_links", "companies"
   add_foreign_key "company_links", "users"
-  add_foreign_key "contributions_links", "contributions"
-  add_foreign_key "contributions_links", "job_profiles"
   add_foreign_key "employees", "companies"
   add_foreign_key "job_profiles", "users"
+  add_foreign_key "job_profiles_to_contributions_links", "contributions"
+  add_foreign_key "job_profiles_to_contributions_links", "job_profiles"
   add_foreign_key "payslips", "companies"
   add_foreign_key "payslips", "employees"
   add_foreign_key "payslips", "performances"
+  add_foreign_key "payslips_to_contributions_links", "contributions"
+  add_foreign_key "payslips_to_contributions_links", "payslips"
   add_foreign_key "performances", "companies"
 end

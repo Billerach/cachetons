@@ -1,3 +1,7 @@
+# frozen_string_literal: true
+
+# This class represents the company issuing the pay slips.
+# It also contains administrative data such as name, SIRET, NAF code, address, entertainment license number, etc.
 class Company < ApplicationRecord
   has_many :payslips
   has_many :employees
