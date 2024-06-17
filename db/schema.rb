@@ -66,7 +66,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_06_17_153201) do
   create_table "job_profiles", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "name"
-    t.string "string"
     t.boolean "executive", default: false, null: false
     t.boolean "artist", default: false, null: false
     t.datetime "created_at", null: false
