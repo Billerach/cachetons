@@ -395,6 +395,17 @@ end
 
 puts 'Payslips created'
 
+puts 'Creatings payslips to contributions links'
+
+all_payslips = Payslip.all
+all_payslips.each do |payslip|
+  used_contributions_array.each do |contribution|
+    PayslipsToContributionsLink.create!(payslip:, contribution:)
+  end
+end
+
+puts 'Payslips to contributions links created'
+
 puts 'Creatings company links'
 
 CompanyLink.create!(company: company1, user: user1)

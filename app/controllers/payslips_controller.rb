@@ -35,9 +35,11 @@ class PayslipsController < ApplicationController
 
   def destroy
     @payslip = Payslip.find(params[:id])
+    @payslip.payslips_to_contributions_links.destroy_all
     @payslip.destroy
-    notice = "La fiche de paie de #{@payslip.employee.firstname} #{@payslip.employee.lastname} n°#{@payslip.payslip_number} a été supprimée définitivement."
-    redirect_to company_payslips_url, notice: notice
+    notice_content = "#{@payslip.employee.firstname} #{@payslip.employee.lastname} n°#{@payslip.payslip_number}"
+    notice = "La fiche de paie de #{notice_content} a été supprimée définitivement."
+    redirect_to company_payslips_url, notice:
   end
 
   private
