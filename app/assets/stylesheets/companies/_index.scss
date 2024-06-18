@@ -51,17 +51,6 @@
   display: none;
 }
 
-.blackout{
-  position: absolute;
-  top:0;
-  left:0;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  background-color: black;
-  opacity: 50%;
-}
-
 #company_create_form_button{
   border: 1px solid $bleuvert;
   background-color: white;
