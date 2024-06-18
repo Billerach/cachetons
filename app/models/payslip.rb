@@ -1,3 +1,8 @@
+# frozen_string_literal: true
+
+# This class represents pay slips.
+# It contains all the information specific to payslips, and is linked to contributions by a join table other
+# than the one used by job_profiles: payslips_to_contributions_links.
 class Payslip < ApplicationRecord
   has_many :contributions, through: :job_profile
   belongs_to :employee

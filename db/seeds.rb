@@ -243,52 +243,73 @@ used_contributions[:fund].each_with_index do |fund, index|
   )
 end
 
-#TODO : la mème mais pour les cotisations non utilisées
+unused_contributions = {
+  fund: [
+    'URSSAF',
+    'URSSAF',
+    'URSSAF',
+    'URSSAF',
+    'URSSAF',
+    'URSSAF',
+    'URSSAF',
+    'Assedic',
+    'Audiens',
+    'Audiens',
+    'Audiens',
+    'CS',
+    'AFDAS',
+    'Audiens',
+    'URSSAF',
+    'AUDIENS',
+    'AUDIENS'
+  ],
+  name: [
+    '100D RG Base déplafonnée : vieillesse',
+    '100A RG Accident du travail (code risque : 923AD).',
+    '332P FNAL cas général et sect. public - de 20 salariés.',
+    'CSG/CRDS imposable.',
+    '312D Artistes :  maladie, maternité, invalidité, décès, solidarité.',
+    '312D Artistes : allocations familiales.',
+    '312P Artistes vieillesse.',
+    '301 AGS.',
+    'Retraite ARRCO cadres Tranche A + APEC',
+    'AGFF Tranche A (ARRCO).',
+    'Prévoyance Artiste Cadre T1.',
+    'Congés Spectacles.',
+    'Congés Formation (+ TVA à 20%).',
+    'CET Tranche A.',
+    '100A RG Accident du travail (code risque : 923AD).',
+    'Garantie minimale de points (GMP)',
+    'Garantie minimale de points (GMP)'
+  ],
+  employee_part: [0.004, 0, 0, 0.029, 0, 0, 0.0483, 0, 0.03894, 0.008, 0, 0, 0, 0.0013, 0, 1.42, 1.52],
+  employer_part: [0.019, 0.017, 0.001, 0, 0.094, 0.02421, 0.05991, 0.00151, 0.0391, 0.012, 0.01951, 0.152,
+                  0.02521, 0.00221, 0.017, 2.32, 2.48],
+  start_date: '2023-01-01',
+  end_date: '2023-12-31'
+}
 
-Contribution.create!(fund: 'URSSAF'  , name: '100D RG Base déplafonnée : vieillesse'                                          , employee_part: 0.004   , employer_part: 0.019   , start_date: '2023-01-01' , end_date: '2023-12-31')
-Contribution.create!(fund: 'URSSAF'  , name: '100A RG Accident du travail (code risque : 923AD).'                             , employee_part: 0       , employer_part: 0.017   , start_date: '2023-01-01' , end_date: '2023-12-31')
-Contribution.create!(fund: 'URSSAF'  , name: '332P FNAL cas général et sect. public - de 20 salariés.'                        , employee_part: 0       , employer_part: 0.001   , start_date: '2023-01-01' , end_date: '2023-12-31')
-Contribution.create!(fund: 'URSSAF'  , name: 'CSG/CRDS imposable.'                                                            , employee_part: 0.029   , employer_part: 0       , start_date: '2023-01-01' , end_date: '2023-12-31')
-Contribution.create!(fund: 'URSSAF'  , name: '312D Artistes :  maladie, maternité, invalidité, décès, solidarité.'            , employee_part: 0       , employer_part: 0.094   , start_date: '2023-01-01' , end_date: '2023-12-31')
-Contribution.create!(fund: 'URSSAF'  , name: '312D Artistes : allocations familiales.'                                        , employee_part: 0       , employer_part: 0.02421 , start_date: '2023-01-01' , end_date: '2023-12-31')
-Contribution.create!(fund: 'URSSAF'  , name: '312P Artistes vieillesse.'                                                      , employee_part: 0.0483  , employer_part: 0.05991 , start_date: '2023-01-01' , end_date: '2023-12-31')
-Contribution.create!(fund: 'Assedic' , name: '301 AGS.'                                                                       , employee_part: 0       , employer_part: 0.00151 , start_date: '2023-01-01' , end_date: '2023-12-31')
-Contribution.create!(fund: 'Audiens' , name: 'Retraite ARRCO cadres Tranche A + APEC'                                         , employee_part: 0.03894 , employer_part: 0.0391  , start_date: '2023-01-01' , end_date: '2023-12-31')
-Contribution.create!(fund: 'Audiens' , name: 'AGFF Tranche A (ARRCO).'                                                        , employee_part: 0.008   , employer_part: 0.012   , start_date: '2023-01-01' , end_date: '2023-12-31')
-Contribution.create!(fund: 'Audiens' , name: 'Prévoyance Artiste Cadre T1.'                                                   , employee_part: 0       , employer_part: 0.01951 , start_date: '2023-01-01' , end_date: '2023-12-31')
-Contribution.create!(fund: 'CS'      , name: 'Congés Spectacles.'                                                             , employee_part: 0       , employer_part: 0.152   , start_date: '2023-01-01' , end_date: '2023-12-31')
-Contribution.create!(fund: 'AFDAS'   , name: 'Congés Formation (+ TVA à 20%).'                                                , employee_part: 0       , employer_part: 0.02521 , start_date: '2023-01-01' , end_date: '2023-12-31')
-Contribution.create!(fund: 'Audiens' , name: 'CET Tranche A.'                                                                 , employee_part: 0.0013  , employer_part: 0.00221 , start_date: '2023-01-01' , end_date: '2023-12-31')
-Contribution.create!(fund: 'URSSAF'  , name: '100A RG Accident du travail (code risque : 923AD).'                             , employee_part: 0       , employer_part: 0.017   , start_date: '2023-01-01' , end_date: '2023-12-31')
-Contribution.create!(fund: 'AUDIENS' , name: 'Garantie minimale de points (GMP)'                                              , employee_part: 1.42    , employer_part: 2.32    , start_date: '2023-01-01' , end_date: '2023-12-31')
-Contribution.create!(fund: 'AUDIENS' , name: 'Garantie minimale de points (GMP)'                                              , employee_part: 1.52    , employer_part: 2.48    , start_date: '2023-01-01' , end_date: '2023-12-31')
+unused_contributions[:fund].each_with_index do |fund, index|
+  Contribution.create!(
+    fund:,
+    name: used_contributions[:name][index],
+    employee_part: used_contributions[:employee_part][index],
+    employer_part: used_contributions[:employer_part][index],
+    start_date: used_contributions[:start_date],
+    end_date: used_contributions[:end_date]
+  )
+end
 
 puts 'Contributions created'
 
 puts 'Creating job profiles'
 
-jp_artiste_c_1 =  JobProfile.create!(user: user1, artist:true, executive: true, name: 'Directeur(trice) artistique')
-jp_artiste_c_2 =  JobProfile.create!(user: user1, artist:true, executive: true, name: 'Metteur(teuse) en scène')
-jp_artiste_c_3 =  JobProfile.create!(user: user1, artist:true, executive: true, name: 'Metteur(teuse) en piste')
-jp_artiste_c_4 =  JobProfile.create!(user: user1, artist:true, executive: true, name: 'Metteur(teuse) en espace')
-
-jp_artiste_nc_1  = JobProfile.create!(user: user1, artist:true, executive: false, name: 'Artistes dramatiques')
-jp_artiste_nc_2  = JobProfile.create!(user: user1, artist:true, executive: false, name: 'Artistes chorégraphiques')
-jp_artiste_nc_3  = JobProfile.create!(user: user1, artist:true, executive: false, name: 'Tuttiste')
-jp_artiste_nc_4  = JobProfile.create!(user: user1, artist:true, executive: false, name: 'Soliste')
-jp_artiste_nc_5  = JobProfile.create!(user: user1, artist:true, executive: false, name: 'Chef de pupitre')
-
-jp_non_artiste_c_1 =  JobProfile.create!(user: user1, artist:false, executive: true, name: 'Directeur de production')
-jp_non_artiste_c_2 =  JobProfile.create!(user: user1, artist:false, executive: true, name: 'Directeur technique')
-jp_non_artiste_c_3 =  JobProfile.create!(user: user1, artist:false, executive: true, name: 'Régisseur général')
-jp_non_artiste_c_4 =  JobProfile.create!(user: user1, artist:false, executive: true, name: 'Régisseur/Régisseur de production')
-
 txt = File.read(Rails.root.join('liste_metiers_techos_admin.txt'))
 array = txt.split(',')
 array.pop
 array.each do |job|
-  JobProfile.create!(user: user1, artist:false, executive: false, name: job)
-  JobProfile.create!(user: user2, artist:false, executive: false, name: job)
+  JobProfile.create!(user: user1, artist: false, executive: false, name: job)
+  JobProfile.create!(user: user2, artist: false, executive: false, name: job)
 end
 
 puts 'Job profiles created'
@@ -306,13 +327,71 @@ puts 'job profiles to contributions links created'
 
 puts 'creating payslips'
 
-Payslip.create!(payslip_number: 1, employee_id: jean_mich.id, company_id: company1.id, contract_start: '2018-01-12', contract_end: '2018-01-13', payment_date: '2018-01-17', performance_id: p1.id, hours_per_day: 8, executive: false, allowance: 1, basis: 212.00, basis_per_day: 106.00, allowance_basis: 212.00, number_of_hours: 16, employer_s_contribution: 115.09, employee_s_contribution: 52.77, net_salary: 159.23, taxable_net: 165.30, urssaf_limit: 400.00, employer_cost: 286.68, number_of_performance: 0, number_of_rehearsal: 0, gross_salary_accumulation: 138, taxable_net_accumulation: 109.93, net_accumulation: 105.98, urssaf_limit_accumulation: 288.00, employer_cost_accumulation: 214.20, hours_accumulation: 12, artist: false)
-Payslip.create!(payslip_number: 1, employee_id: fabrice.id,   company_id: company2.id, contract_start: '2018-01-12', contract_end: '2018-01-13', payment_date: '2018-01-17', performance_id: p2.id, hours_per_day: 8, executive: false, allowance: 1, basis: 212.00, basis_per_day: 106.00, allowance_basis: 212.00, number_of_hours: 16, employer_s_contribution: 115.09, employee_s_contribution: 52.77, net_salary: 159.23, taxable_net: 165.30, urssaf_limit: 400.00, employer_cost: 286.68, number_of_performance: 0, number_of_rehearsal: 0, gross_salary_accumulation: 138, taxable_net_accumulation: 109.93, net_accumulation: 105.98, urssaf_limit_accumulation: 288.00, employer_cost_accumulation: 214.20, hours_accumulation: 12, artist: false)
-Payslip.create!(payslip_number: 1, employee_id: mamadou.id,   company_id: company3.id, contract_start: '2018-01-12', contract_end: '2018-01-13', payment_date: '2018-01-17', performance_id: p3.id, hours_per_day: 8, executive: false, allowance: 1, basis: 212.00, basis_per_day: 106.00, allowance_basis: 212.00, number_of_hours: 16, employer_s_contribution: 115.09, employee_s_contribution: 52.77, net_salary: 159.23, taxable_net: 165.30, urssaf_limit: 400.00, employer_cost: 286.68, number_of_performance: 0, number_of_rehearsal: 0, gross_salary_accumulation: 138, taxable_net_accumulation: 109.93, net_accumulation: 105.98, urssaf_limit_accumulation: 288.00, employer_cost_accumulation: 214.20, hours_accumulation: 12, artist: false)
-Payslip.create!(payslip_number: 1, employee_id: luke.id,      company_id: company1.id, contract_start: '2018-01-12', contract_end: '2018-01-13', payment_date: '2018-01-17', performance_id: p1.id, hours_per_day: 8, executive: false, allowance: 1, basis: 212.00, basis_per_day: 106.00, allowance_basis: 212.00, number_of_hours: 16, employer_s_contribution: 115.09, employee_s_contribution: 52.77, net_salary: 159.23, taxable_net: 165.30, urssaf_limit: 400.00, employer_cost: 286.68, number_of_performance: 0, number_of_rehearsal: 0, gross_salary_accumulation: 138, taxable_net_accumulation: 109.93, net_accumulation: 105.98, urssaf_limit_accumulation: 288.00, employer_cost_accumulation: 214.20, hours_accumulation: 12, artist: false)
-Payslip.create!(payslip_number: 1, employee_id: albert.id,    company_id: company2.id, contract_start: '2018-01-12', contract_end: '2018-01-13', payment_date: '2018-01-17', performance_id: p2.id, hours_per_day: 8, executive: false, allowance: 1, basis: 212.00, basis_per_day: 106.00, allowance_basis: 212.00, number_of_hours: 16, employer_s_contribution: 115.09, employee_s_contribution: 52.77, net_salary: 159.23, taxable_net: 165.30, urssaf_limit: 400.00, employer_cost: 286.68, number_of_performance: 0, number_of_rehearsal: 0, gross_salary_accumulation: 138, taxable_net_accumulation: 109.93, net_accumulation: 105.98, urssaf_limit_accumulation: 288.00, employer_cost_accumulation: 214.20, hours_accumulation: 12, artist: false)
-Payslip.create!(payslip_number: 1, employee_id: luke2.id,     company_id: company3.id, contract_start: '2018-01-12', contract_end: '2018-01-13', payment_date: '2018-01-17', performance_id: p3.id, hours_per_day: 8, executive: false, allowance: 1, basis: 212.00, basis_per_day: 106.00, allowance_basis: 212.00, number_of_hours: 16, employer_s_contribution: 115.09, employee_s_contribution: 52.77, net_salary: 159.23, taxable_net: 165.30, urssaf_limit: 400.00, employer_cost: 286.68, number_of_performance: 0, number_of_rehearsal: 0, gross_salary_accumulation: 138, taxable_net_accumulation: 109.93, net_accumulation: 105.98, urssaf_limit_accumulation: 288.00, employer_cost_accumulation: 214.20, hours_accumulation: 12, artist: false)
-Payslip.create!(payslip_number: 1, employee_id: albert2.id,   company_id: company3.id, contract_start: '2018-01-12', contract_end: '2018-01-13', payment_date: '2018-01-17', performance_id: p3.id, hours_per_day: 8, executive: false, allowance: 1, basis: 212.00, basis_per_day: 106.00, allowance_basis: 212.00, number_of_hours: 16, employer_s_contribution: 115.09, employee_s_contribution: 52.77, net_salary: 159.23, taxable_net: 165.30, urssaf_limit: 400.00, employer_cost: 286.68, number_of_performance: 0, number_of_rehearsal: 0, gross_salary_accumulation: 138, taxable_net_accumulation: 109.93, net_accumulation: 105.98, urssaf_limit_accumulation: 288.00, employer_cost_accumulation: 214.20, hours_accumulation: 12, artist: false)
+payslips = {
+  payslip_number: 1,
+  employee_id: [jean_mich.id, fabrice.id, mamadou.id, luke.id, albert.id, luke2.id,albert2.id],
+  company_id: [company1.id, company2.id, company3.id, company1.id, company2.id, company3.id, company3.id],
+  contract_start: '2018-01-12',
+  contract_end: '2018-01-13',
+  payment_date: '2018-01-17',
+  performance_id: [p1.id, p2.id, p3.id, p1.id, p2.id, p3.id, p3.id],
+  hours_per_day: 8,
+  executive: false,
+  allowance: 1,
+  basis: 212.00,
+  basis_per_day: 106.00,
+  allowance_basis: 212.00,
+  number_of_hours: 16,
+  employer_s_contribution: 115.09,
+  employee_s_contribution: 52.77,
+  net_salary: 159.23,
+  taxable_net: 165.30,
+  urssaf_limit: 400.00,
+  employer_cost: 286.68,
+  number_of_performance: 0,
+  number_of_rehearsal: 0,
+  gross_salary_accumulation: 138,
+  taxable_net_accumulation: 109.93,
+  net_accumulation: 105.98,
+  urssaf_limit_accumulation: 288.00,
+  employer_cost_accumulation: 214.20,
+  hours_accumulation: 12,
+  artist: false
+}
+
+payslips[:employee_id].each_with_index do |employee_id, index|
+  Payslip.create!(
+    payslip_number: 1,
+    employee_id:,
+    company_id: payslips[:company_id][index],
+    contract_start: '2018-01-12',
+    contract_end: '2018-01-13',
+    payment_date: '2018-01-17',
+    performance_id: payslips[:performance_id][index],
+    hours_per_day: 8,
+    executive: false,
+    allowance: 1,
+    basis: 212.00,
+    basis_per_day: 106.00,
+    allowance_basis: 212.00,
+    number_of_hours: 16,
+    employer_s_contribution: 115.09,
+    employee_s_contribution: 52.77,
+    net_salary: 159.23,
+    taxable_net: 165.30,
+    urssaf_limit: 400.00,
+    employer_cost: 286.68,
+    number_of_performance: 0,
+    number_of_rehearsal: 0,
+    gross_salary_accumulation: 138,
+    taxable_net_accumulation: 109.93,
+    net_accumulation: 105.98,
+    urssaf_limit_accumulation: 288.00,
+    employer_cost_accumulation: 214.20,
+    hours_accumulation: 12,
+    artist: false
+  )
+end
 
 puts 'Payslips created'
 

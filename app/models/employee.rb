@@ -4,7 +4,6 @@
 # same thing for the company. It contains their names, address, phone, NIR (french social security number),
 # "congés spectacle" number (the employee's identification code for the fund responsible for financing paid
 # leave for entertainment workers), and finally the date, place, French departement or country_of_birth
-
 class Employee < ApplicationRecord
   has_many :payslips
   belongs_to :company

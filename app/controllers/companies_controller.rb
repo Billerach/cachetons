@@ -31,7 +31,7 @@ class CompaniesController < ApplicationController
 
   def update
     @company = Company.find(params[:id])
-    redirect_to @company, notice: "Les données de la structure ont été mises à jour." if @company.update(company_params)
+    redirect_to @company, notice: 'Les données de la structure ont été mises à jour.' if @company.update(company_params)
   end
 
   def destroy
@@ -45,7 +45,7 @@ class CompaniesController < ApplicationController
       @company.destroy
       notice = "#{@company.name} a été supprimé définitivement."
     end
-    redirect_to companies_path, notice: notice
+    redirect_to companies_path, notice:
   end
 
   private

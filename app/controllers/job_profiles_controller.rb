@@ -12,24 +12,22 @@ class JobProfilesController < ApplicationController
   end
 
   def create
-    if job_profile_params[:contributions_list].nil? || job_profile_params[:name] == ""
-      redirect_to new_job_profile_url, notice: "Vous devez entrer un nom et des cotisations dans votre modèle de fiche de paie !"
+    if test_empty_needed_fields(job_profile_params)
+      create_error_message('Vous devez entrer un nom et des cotisations dans votre modèle de fiche de paie !')
     else
-      @job_profile = JobProfile.new(job_profile_params)
-      @job_profile.contributions_list = job_profile_params[:contributions_list].map(&:to_i)
-      @job_profile.user_id = current_user.id
-      job_profile_params[:artist] == "1" ? @job_profile.artist = true : @job_profile.artist = false
-      job_profile_params[:executive] == "1" ? @job_profile.executive = true : @job_profile.executive = false
-      @job_profile.save
-      redirect_to job_profiles_url
+      @job_profile = JobProfile.create!(user: current_user, name: job_profile_params[:name])
+      job_profile_bool(job_profile_params)
+      create_links(job_profile_params[:contributions_list])
+      redirect_to @job_profile, notice: 'Nouveau modèle créé' if @job_profile.save
     end
   end
 
   def destroy
     @job_profile = JobProfile.find(params[:id])
+    @job_profile.job_profiles_to_contributions_links.destroy_all
     @job_profile.destroy
     notice = "Le modèle #{@job_profile.name} a été supprimé définitivement."
-    redirect_to job_profiles_path, notice: notice
+    redirect_to job_profiles_path, notice:
   end
 
   def edit
@@ -39,20 +37,37 @@ class JobProfilesController < ApplicationController
 
   def update
     @job_profile = JobProfile.find(params[:id])
-    job_profile_params[:artist] == "1" ? @job_profile.artist = true : @job_profile.artist = false
-    job_profile_params[:executive] == "1" ? @job_profile.executive = true : @job_profile.executive = false
-    @job_profile.contributions_links.destroy_all
-    new_contributions_ids = job_profile_params[:contributions_list].map(&:to_i)
-    new_contributions_ids.each do |new_contribution_id|
-      new_contribution = Contribution.find(new_contribution_id)
-      ContributionsLink.create!(job_profile: @job_profile, contribution: new_contribution)
-    end
-    redirect_to @job_profile, notice: "Le modèle à été mis à jour." if @job_profile.save
+    job_profile_bool(job_profile_params)
+    destroy_links
+    create_links(job_profile_params[:contributions_list])
+    redirect_to @job_profile, notice: "#{@job_profile.name} mis à jour." if @job_profile.save
   end
 
   private
 
   def job_profile_params
     params.require(:job_profile).permit(:name, :executive, :artist, contributions_list: [])
+  end
+
+  def create_links(list)
+    new_contributions_ids = list.map(&:to_i)
+    @job_profile.contributions << Contribution.find(new_contributions_ids)
+  end
+
+  def destroy_links
+    @job_profile.job_profiles_to_contributions_links.destroy_all
+  end
+
+  def create_error_message(notice)
+    redirect_to new_job_profile_url, notice:
+  end
+
+  def test_empty_needed_fields(fields)
+    fields[:contributions_list].nil? || fields[:name] == ''
+  end
+
+  def job_profile_bool(bool)
+    @job_profile.artist = bool[:artist] == '1'
+    @job_profile.executive = bool[:executive] == '1'
   end
 end
