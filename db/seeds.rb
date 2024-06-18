@@ -2,14 +2,14 @@
 
 # require 'open-uri'
 
+puts 'Destroy payslips to contributions links'
+PayslipsToContributionsLink.destroy_all
+
 puts 'Destroy payslips'
 Payslip.destroy_all
 
 puts 'Destroy job profiles to contributions links'
 JobProfilesToContributionsLink.destroy_all
-
-puts 'Destroy payslips to contributions links'
-PayslipsToContributionsLink.destroy_all
 
 puts 'Destroy employees'
 Employee.destroy_all
@@ -362,7 +362,7 @@ payslips = {
 payslips[:employee_id].each_with_index do |employee_id, index|
   Payslip.create!(
     payslip_number: 1,
-    employee_id:,
+    employee_id: employee_id,
     company_id: payslips[:company_id][index],
     contract_start: '2018-01-12',
     contract_end: '2018-01-13',

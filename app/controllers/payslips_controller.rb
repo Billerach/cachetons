@@ -1,5 +1,4 @@
 class PayslipsController < ApplicationController
-
   def index
     @payslips = set_payslips
     @company = Company.find(params[:company_id])
@@ -50,24 +49,16 @@ class PayslipsController < ApplicationController
 
   def payslip_creation
     payslip_params_hydratation
-    @payslip.company = @company
-    @payslip.employee = @employee
-    @payslip.performance = @performance
+    @payslip.update(company: @company, employee: @employee, performance: @performance)
     @payslip.contract_start = payslip_params[:contract_start]
     @payslip.payslip_number = payslip_number_generator(@payslip.employee)
+    @job_profile.contributions.each { |contribution| @payslip.contribution << contribution }
   end
 
   def payslip_params_hydratation
     @employee = Employee.find(payslip_params[:employee_id])
     @performance = Performance.find(payslip_params[:performance_id])
     @job_profile = JobProfile.find(payslip_params[:job_profile])
-    contributions_load
-  end
-
-  def contributions_load
-    @job_profile.contributions.each do |contribution|
-      raise
-    end
   end
 
   def payslip_number_generator(employee)
